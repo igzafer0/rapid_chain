@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
 import 'package:rapid_chain/presentation/widget/image/network_image_global.dart';
 import 'package:rapid_chain/presentation/widget/label/label_global_md_widget.dart';
 import 'package:rapid_chain/presentation/widget/label/label_global_widget.dart';
 import 'package:rapid_chain/util/constant/general_enum.dart';
+import 'package:rapid_chain/util/constant/navigation_constant.dart';
 import 'package:rapid_chain/util/extension/design_extension/edge_insets_extension.dart';
 import 'package:rapid_chain/util/extension/design_extension/size_extension.dart';
 import 'package:rapid_chain/util/extension/design_extension/spacer_extension.dart';
@@ -51,7 +53,7 @@ class FlowPostWidget extends StatelessWidget {
             ],
           ),
         ),
-        Gap(context.LargeSpacer),
+        Gap(context.MidSpacer),
         SizedBox(
           width: context.ScreenWidth,
           child: const AspectRatio(
@@ -61,14 +63,19 @@ class FlowPostWidget extends StatelessWidget {
                     "https://www.gurkangurkan.com/Resources/Press/ImageFile/8_m.jpg"),
           ),
         ),
-        Gap(context.LargeSpacer),
+        Gap(context.MidSpacer),
         Padding(
           padding: context.MidHorizontalEdgeInsets,
           child: Row(
             children: [
               const Icon(Icons.favorite_border, size: 32),
               Gap(context.LargeSpacer),
-              const Icon(Icons.forum, size: 32),
+              GestureDetector(
+                  onTap: () => context.pushNamed(
+                        NavigationConstant.COMMENT_LIST,
+                        pathParameters: {"postId": "1"},
+                      ),
+                  child: const Icon(Icons.forum, size: 32)),
             ],
           ),
         ),

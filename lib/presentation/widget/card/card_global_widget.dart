@@ -12,7 +12,7 @@ class CardGlobalWidget extends StatelessWidget {
       {required this.child,
       this.onTap,
       this.opacity = 1,
-      this.color = APPLICATION_COLOR.LIGHT,
+      this.color = APPLICATION_COLOR.PRIMARY,
       super.key});
 
   @override

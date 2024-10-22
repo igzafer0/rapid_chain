@@ -11,6 +11,7 @@ class TextFieldGlobalWidget extends StatefulWidget {
   final int? maxLength;
   final int? maxLines;
   final InputType inputType;
+  final APPLICATION_COLOR background;
 
   final Function(String) newText;
   const TextFieldGlobalWidget({
@@ -20,6 +21,7 @@ class TextFieldGlobalWidget extends StatefulWidget {
     this.maxLength,
     this.inputType = InputType.TEXT,
     this.maxLines,
+    this.background = APPLICATION_COLOR.BACKGROUND,
     required this.newText,
   });
 
@@ -51,8 +53,7 @@ class _TextFieldGlobalWidgetState extends State<TextFieldGlobalWidget> {
       borderRadius: context.MidAllRadius,
       child: Container(
         padding: context.MidHorizontalEdgeInsets,
-        decoration:
-            BoxDecoration(color: context.toColor(APPLICATION_COLOR.BACKGROUND)),
+        decoration: BoxDecoration(color: context.toColor(widget.background)),
         alignment: Alignment.centerLeft,
         height: 55,
         child: textFieldWidget(context, widget.inputType),
