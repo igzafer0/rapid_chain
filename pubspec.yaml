@@ -1,0 +1,53 @@
+name: rapid_chain
+description: "Cyripto"
+publish_to: 'none' 
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.5.1
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+  cupertino_icons: ^1.0.8
+  flutter_mobx: ^2.0.0
+  mobx: ^2.0.1
+  provider: ^6.0.4
+  build_runner: ^2.3.2
+  json_annotation: ^4.0.1
+  json_serializable: ^6.5.4
+  mobx_codegen: ^2.6.1
+
+  dio: ^5.4.2+1
+
+
+  #UI SPACER
+  gap: ^3.0.1
+
+
+  #Navigation
+  go_router: ^14.2.0
+
+  #DI
+  get_it: ^7.6.0
+
+
+
+  
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^4.0.0
+
+flutter:
+
+  uses-material-design: true
+  
+  assets:
+    - assets/img/bitcoin.png    
+
