@@ -24,6 +24,8 @@ class FlowView extends StatelessWidget {
               const FlowPostWidget(),
               Gap(context.LargeSpacer),
               const FlowPostWidget(),
+              Gap(context.LargeSpacer),
+              const FlowPostWidget(),
             ],
           ),
         ),
