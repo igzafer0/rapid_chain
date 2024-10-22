@@ -3,6 +3,7 @@ import 'package:gap/gap.dart';
 import 'package:rapid_chain/config/base/view/base_view.dart';
 import 'package:rapid_chain/presentation/view/flow_post/comment_list/view_model/comment_list_view_model.dart';
 import 'package:rapid_chain/presentation/view/widget/flow_post_comment_widget/flow_post_comment_widget.dart';
+import 'package:rapid_chain/presentation/widget/appbar/appbar_global_widget.dart';
 import 'package:rapid_chain/presentation/widget/text_field/text_field_global_widget.dart';
 import 'package:rapid_chain/util/constant/general_enum.dart';
 import 'package:rapid_chain/util/extension/design_extension/edge_insets_extension.dart';
@@ -23,9 +24,11 @@ class CommentListView extends StatelessWidget {
       },
       onPageBuilder: (BuildContext context, CommentListViewModel value) =>
           Scaffold(
+        appBar: const AppbarGlobalWidget(title: "Comments"),
         body: SafeArea(
           child: Column(
             children: [
+              Gap(context.MidSpacer),
               Expanded(
                 child: ListView.builder(
                   keyboardDismissBehavior:
