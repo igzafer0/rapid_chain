@@ -75,7 +75,8 @@ class _TextFieldGlobalWidgetState extends State<TextFieldGlobalWidget> {
       ),
       decoration: InputDecoration(
         border: InputBorder.none,
-        hintStyle: TextStyle(color: context.toColor(APPLICATION_COLOR.TITLE)),
+        hintStyle:
+            TextStyle(color: context.toColor(APPLICATION_COLOR.SUBTITLE)),
         hintText: widget.hintText,
       ),
     );

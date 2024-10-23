@@ -24,7 +24,7 @@ class AppbarGlobalWidget extends StatelessWidget
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(color: context.toColor(background)),
-      padding: const EdgeInsets.only(bottom: 5, left: 20, right: 20),
+      padding: const EdgeInsets.only(bottom: 0, left: 5, right: 20),
       alignment: Alignment.bottomLeft,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,

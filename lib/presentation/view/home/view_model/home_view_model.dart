@@ -11,7 +11,7 @@ abstract class _HomeViewModelBase with Store, BaseViewModel {
   @override
   void init() {}
   @observable
-  int PageIndex = 0;
+  int PageIndex = 2;
   final List PageIcon = [
     {
       0: const Icon(

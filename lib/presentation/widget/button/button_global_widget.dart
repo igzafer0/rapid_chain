@@ -23,17 +23,15 @@ class ButtonGlobalWidget extends StatelessWidget {
         width: context.ScreenWidth,
         decoration: BoxDecoration(
           gradient: const LinearGradient(
-            colors: [
-              Color(0xFFF00EBA), // Brighter pink
-              Color.fromARGB(255, 25, 24, 48)
-            ], // Gradient colors
+            transform: GradientRotation(7),
+            colors: [Color(0xFFF00EBA), Color.fromARGB(255, 25, 24, 48)],
             begin: Alignment.topLeft,
+            stops: [0, .75],
             end: Alignment.bottomRight,
           ),
           boxShadow: [
             BoxShadow(
-              color:
-                  Colors.pinkAccent.withOpacity(0.6), // Brighter shadow color
+              color: Colors.pinkAccent.withOpacity(0.6),
               offset: const Offset(0, 6),
             ),
           ],
