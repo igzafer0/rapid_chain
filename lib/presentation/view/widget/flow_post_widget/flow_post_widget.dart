@@ -97,12 +97,18 @@ class FlowPostWidget extends StatelessWidget {
           ),
         ),
         Gap(context.SmallSpacer),
-        Padding(
-          padding: context.MidHorizontalEdgeInsets,
-          child: const LabelGlobalWidget(
-            title: "See other comments",
-            fontSize: FONT_SIZE.TITLE_SMALL,
-            fontWeight: FontWeight.w700,
+        GestureDetector(
+          onTap: () => context.pushNamed(
+            NavigationConstant.COMMENT_LIST,
+            pathParameters: {"postId": "1"},
+          ),
+          child: Padding(
+            padding: context.MidHorizontalEdgeInsets,
+            child: const LabelGlobalWidget(
+              title: "See other comments",
+              fontSize: FONT_SIZE.TITLE_SMALL,
+              fontWeight: FontWeight.w700,
+            ),
           ),
         ),
       ],

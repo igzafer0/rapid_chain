@@ -10,6 +10,7 @@ class LabelGlobalWidget extends StatelessWidget {
   final APPLICATION_COLOR textColor;
   final TextAlign align;
   final int? maxLines;
+  final double? letterSpace;
   final FontWeight? fontWeight;
   const LabelGlobalWidget({
     required this.title,
@@ -19,6 +20,7 @@ class LabelGlobalWidget extends StatelessWidget {
     this.align = TextAlign.left,
     this.textLineHeight = 1.5,
     this.fontWeight,
+    this.letterSpace,
     this.maxLines,
     super.key,
   });
@@ -33,6 +35,7 @@ class LabelGlobalWidget extends StatelessWidget {
             color: context.toColor(textColor),
             fontWeight: fontWeight,
             height: textLineHeight,
+            letterSpacing: letterSpace,
           ),
     );
   }

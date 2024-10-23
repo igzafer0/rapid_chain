@@ -4,6 +4,7 @@ import 'package:rapid_chain/config/base/view/base_view.dart';
 import 'package:rapid_chain/presentation/view/home/pages/code/view/code_view.dart';
 import 'package:rapid_chain/presentation/view/home/pages/flow/view/flow_view.dart';
 import 'package:rapid_chain/presentation/view/home/pages/leader_board/view/leader_board_view.dart';
+import 'package:rapid_chain/presentation/view/home/pages/referance/view/referance_view.dart';
 import 'package:rapid_chain/presentation/view/home/view_model/home_view_model.dart';
 import 'package:rapid_chain/presentation/widget/card/card_global_widget.dart';
 import 'package:rapid_chain/util/constant/general_enum.dart';
@@ -35,6 +36,8 @@ class HomeView extends StatelessWidget {
                   return const LeaderBoardView();
                 } else if (value.PageIndex == 2) {
                   return const CodeView();
+                } else if (value.PageIndex == 3) {
+                  return const ReferanceView();
                 }
                 return Container();
               })),
