@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:rapid_chain/config/base/view/base_view.dart';
 import 'package:rapid_chain/presentation/view/home/pages/flow/view/flow_view.dart';
+import 'package:rapid_chain/presentation/view/home/pages/leader_board/view/leader_board_view.dart';
 import 'package:rapid_chain/presentation/view/home/view_model/home_view_model.dart';
 import 'package:rapid_chain/presentation/widget/card/card_global_widget.dart';
 import 'package:rapid_chain/util/constant/general_enum.dart';
@@ -27,6 +28,8 @@ class HomeView extends StatelessWidget {
               Expanded(child: Builder(builder: (context) {
                 if (value.PageIndex == 0) {
                   return const FlowView();
+                } else if (value.PageIndex == 1) {
+                  return const LeaderBoardView();
                 }
                 return Container();
               })),
