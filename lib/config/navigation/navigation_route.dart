@@ -6,10 +6,11 @@ import 'package:rapid_chain/presentation/view/auth/register/view/register_view.d
 import 'package:rapid_chain/presentation/view/auth/splash/view/splash_view.dart';
 import 'package:rapid_chain/presentation/view/flow_post/comment_list/view/comment_list_view.dart';
 import 'package:rapid_chain/presentation/view/home/view/home_view.dart';
+import 'package:rapid_chain/presentation/view/setting/view/setting_view.dart';
 import 'package:rapid_chain/util/constant/navigation_constant.dart';
 
 final router = GoRouter(
-  initialLocation: NavigationConstant.HOME,
+  initialLocation: NavigationConstant.LOGIN,
   routes: [
     GoRoute(
       name: NavigationConstant.MAIN,
@@ -31,6 +32,11 @@ final router = GoRouter(
         path: NavigationConstant.HOME,
         builder: (context, state) => const HomeView(),
         routes: [
+          GoRoute(
+            name: NavigationConstant.setting,
+            path: NavigationConstant.setting,
+            builder: (context, state) => const SettingView(),
+          ),
           GoRoute(
             name: NavigationConstant.COMMENT_LIST,
             path: ":postId",

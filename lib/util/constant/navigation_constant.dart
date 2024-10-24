@@ -4,4 +4,5 @@ class NavigationConstant {
   static const REGISTER = '/register';
   static const HOME = '/home';
   static const COMMENT_LIST = 'comments';
+  static const setting = 'setting';
 }
