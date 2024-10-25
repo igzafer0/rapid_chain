@@ -3,6 +3,7 @@
 enum SourcePath {
   BASE_URL,
   SEND_OTP,
+  ME,
   LOGIN,
   REGISTER,
   RESET_PASSWORD,
@@ -15,6 +16,7 @@ extension SourcePathExtension on SourcePath {
     return switch (this) {
       SourcePath.BASE_URL => "https://atalay.denizegece.com.tr",
       SourcePath.SEND_OTP => "/auth/sendregistermail",
+      SourcePath.ME => "/user/me",
       SourcePath.LOGIN => "/auth/login",
       SourcePath.REGISTER => "/auth/register",
       SourcePath.REFRESH_TOKEN => "/auth/refresh",
