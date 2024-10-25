@@ -29,6 +29,7 @@ class FirstAttempWidget extends StatelessWidget {
             fontWeight: FontWeight.w300,
             title:
                 "By registering you accept the *Privacy Policy* and *Terms of Use*"),
+        Gap(context.SmallSpacer),
       ],
     );
   }

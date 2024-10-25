@@ -72,11 +72,11 @@ class LoginView extends StatelessWidget {
                                   title: "Forgot your password? *Reset*"),
                             ],
                           ),
-                          Gap(context.LargeSpacer),
+                          Gap(context.MidSpacer),
                         ],
                       )),
                 ),
-                Gap(context.SmallSpacer),
+                Gap(context.MidSpacer),
                 GestureDetector(
                   onTap: () =>
                       context.pushReplacementNamed(NavigationConstant.REGISTER),

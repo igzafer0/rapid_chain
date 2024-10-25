@@ -14,19 +14,19 @@ class LastAttempWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+    return ListView(
       children: [
-        Gap(context.MidSpacer),
-        const LabelGlobalWidget(title: "Wallet Adress"),
-        Gap(context.MidSpacer),
-        TextFieldGlobalWidget(
-            inputType: InputType.TEXT, newText: (e) => WalletAddress(e)),
         Gap(context.MidSpacer),
         const LabelGlobalWidget(title: "Password"),
         Gap(context.MidSpacer),
         TextFieldGlobalWidget(
             inputType: InputType.PASSWORD, newText: (e) => Password(e)),
+        Gap(context.MidSpacer),
+        const LabelGlobalWidget(title: "Password Reply"),
+        Gap(context.MidSpacer),
+        TextFieldGlobalWidget(
+            inputType: InputType.PASSWORD, newText: (e) => Password(e)),
+        Gap(context.MidSpacer),
       ],
     );
   }

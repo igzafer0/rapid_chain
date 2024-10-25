@@ -28,12 +28,13 @@ class EmailVerificationWidget extends StatelessWidget {
               title:
                   "We sent a verification email to *$email*. Is the email address incorrect? *Change email address.*"),
         ),
-        Gap(context.MidSpacer),
+        Gap(context.LargeSpacer),
         TextFieldGlobalWidget(
-          inputType: InputType.PASSWORD,
+          inputType: InputType.TEXT,
           newText: (e) => verificationCode(e),
           hintText: "Verification Code",
         ),
+        Gap(context.MidSpacer),
       ],
     );
   }

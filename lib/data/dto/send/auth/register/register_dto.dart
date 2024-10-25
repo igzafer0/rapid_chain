@@ -18,4 +18,15 @@ class RegisterDto {
     required this.otpCode,
     required this.password,
   });
+
+  Map<String, dynamic> toJson() => {
+        "name": name,
+        "surname": surName,
+        "email": email,
+        "password": password,
+        "walletaddress": walletAddress,
+        "referrerReferenceCode": referrerReferenceCode,
+        "otpcode": otpCode,
+        "username": password
+      };
 }
