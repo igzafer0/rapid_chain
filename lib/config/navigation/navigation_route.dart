@@ -1,6 +1,7 @@
 // ignore_for_file: unrelated_type_equality_checks
 
 import 'package:go_router/go_router.dart';
+import 'package:rapid_chain/injector.dart';
 import 'package:rapid_chain/presentation/view/auth/login/view/login_view.dart';
 import 'package:rapid_chain/presentation/view/auth/register/view/register_view.dart';
 import 'package:rapid_chain/presentation/view/auth/splash/view/splash_view.dart';
@@ -8,9 +9,17 @@ import 'package:rapid_chain/presentation/view/flow_post/comment_list/view/commen
 import 'package:rapid_chain/presentation/view/home/view/home_view.dart';
 import 'package:rapid_chain/presentation/view/setting/view/setting_view.dart';
 import 'package:rapid_chain/util/constant/navigation_constant.dart';
+import 'package:rapid_chain/util/resources/authentication_source.dart';
 
 final router = GoRouter(
   initialLocation: NavigationConstant.LOGIN,
+  redirect: (context, state) {
+    var result = locator<AuthenticationSource>().isTokenStillValid();
+    if (!result) {
+      return NavigationConstant.LOGIN;
+    }
+    return null;
+  },
   routes: [
     GoRoute(
       name: NavigationConstant.MAIN,
