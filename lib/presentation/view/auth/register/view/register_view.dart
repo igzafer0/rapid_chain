@@ -45,6 +45,9 @@ class RegisterView extends StatelessWidget {
                           Observer(builder: (context) {
                             if (value.attempIndex == 0) {
                               return FirstAttempWidget(
+                                initEmail: value.email,
+                                initReferanceCode: value.referenceCode,
+                                ReferanceCode: (p0) => value.referenceCode = p0,
                                 Email: (p0) => value.email = p0,
                               );
                             } else if (value.attempIndex == 1) {
@@ -66,7 +69,7 @@ class RegisterView extends StatelessWidget {
                           Observer(builder: (context) {
                             return ButtonGlobalWidget(
                               onTap: () => value.nextAttemp(),
-                              text: value.attempIndex > 2 ? "Register" : "Next",
+                              text: value.attempIndex > 1 ? "Register" : "Next",
                             );
                           }),
                           Gap(context.MidSpacer)

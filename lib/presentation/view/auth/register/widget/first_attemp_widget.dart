@@ -9,7 +9,17 @@ import 'package:rapid_chain/util/extension/design_extension/spacer_extension.dar
 
 class FirstAttempWidget extends StatelessWidget {
   final Function(String) Email;
-  const FirstAttempWidget({required this.Email, super.key});
+  final String initEmail;
+  final String initReferanceCode;
+  final Function(String) ReferanceCode;
+
+  const FirstAttempWidget({
+    required this.Email,
+    required this.ReferanceCode,
+    required this.initEmail,
+    required this.initReferanceCode,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +32,16 @@ class FirstAttempWidget extends StatelessWidget {
         TextFieldGlobalWidget(
           inputType: InputType.MAIL,
           newText: (e) => Email(e),
+          initValue: initEmail,
+        ),
+        Gap(context.MidSpacer),
+        const LabelGlobalWidget(title: "Referance Code"),
+        Gap(context.MidSpacer),
+        TextFieldGlobalWidget(
+          inputType: InputType.MAIL,
+          hintText: "Referance code can be empty",
+          newText: (e) => ReferanceCode(e),
+          initValue: initReferanceCode,
         ),
         Gap(context.MidSpacer),
         const LabelGlobalMdWidget(

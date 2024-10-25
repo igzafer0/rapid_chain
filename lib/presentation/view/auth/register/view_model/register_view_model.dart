@@ -32,12 +32,13 @@ abstract class _RegisterViewModelBase with Store, BaseViewModel {
   String verificationCode = "";
   String walletAddress = "";
   String password = "";
+  String referenceCode = "";
 
   @action
   void nextAttemp() {
     if (attempIndex == 0) {
       _sendOtp();
-    } else if (attempIndex == 3) {
+    } else if (attempIndex == 2) {
       _register();
     } else {
       attempIndex += 1;
@@ -56,7 +57,7 @@ abstract class _RegisterViewModelBase with Store, BaseViewModel {
       surName: surname,
       email: email,
       walletAddress: walletAddress,
-      referrerReferenceCode: "",
+      referrerReferenceCode: referenceCode,
       otpCode: verificationCode,
       password: password,
     ));
