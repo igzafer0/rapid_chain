@@ -29,7 +29,7 @@ abstract class _LoginViewModelBase with Store, BaseViewModel {
     var result =
         await useCase.login(LoginDto(email: email, password: password));
     if (result == null) {
-      viewModelContext.pushNamed(NavigationConstant.HOME);
+      viewModelContext.pushReplacementNamed(NavigationConstant.HOME);
     } else {
       if (result.errors?.isNotEmpty ?? false) {
         snackBar(result.errors!.entries.first.value.first);

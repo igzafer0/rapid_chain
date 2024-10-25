@@ -41,7 +41,9 @@ class SettingView extends StatelessWidget {
               Gap(context.MidSpacer),
               const SettingListRowWidget(text: "Cüzdan Adresi"),
               Gap(context.MidSpacer),
-              const SettingListRowWidget(text: "Çıkış Yap"),
+              GestureDetector(
+                  onTap: () => value.logOut(),
+                  child: const SettingListRowWidget(text: "Çıkış Yap")),
               Gap(context.LargeSpacer),
               const DividerGlobalWidget(),
               Gap(context.LargeSpacer),
