@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:rapid_chain/config/navigation/navigation_route.dart';
 import 'package:rapid_chain/config/theme/dark/app_theme_dark.dart';
+import 'package:rapid_chain/injector.dart' as di;
 
 void main() {
+  di.init();
   runApp(const MyApp());
 }
 

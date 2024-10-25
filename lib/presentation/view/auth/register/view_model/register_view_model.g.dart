@@ -29,11 +29,11 @@ mixin _$RegisterViewModel on _RegisterViewModelBase, Store {
       ActionController(name: '_RegisterViewModelBase', context: context);
 
   @override
-  void changeAttemp(int index) {
+  void nextAttemp() {
     final _$actionInfo = _$_RegisterViewModelBaseActionController.startAction(
-        name: '_RegisterViewModelBase.changeAttemp');
+        name: '_RegisterViewModelBase.nextAttemp');
     try {
-      return super.changeAttemp(index);
+      return super.nextAttemp();
     } finally {
       _$_RegisterViewModelBaseActionController.endAction(_$actionInfo);
     }

@@ -6,29 +6,27 @@ import 'package:rapid_chain/util/enum/input_type.dart';
 import 'package:rapid_chain/util/extension/design_extension/spacer_extension.dart';
 
 class LastAttempWidget extends StatelessWidget {
-  const LastAttempWidget({super.key});
+  final Function(String) WalletAddress;
+  final Function(String) Password;
+
+  const LastAttempWidget(
+      {required this.WalletAddress, required this.Password, super.key});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Gap(context.SmallSpacer),
-        const LabelGlobalWidget(title: "Nickname"),
-        Gap(context.MidSpacer),
-        TextFieldGlobalWidget(
-          newText: (e) => {},
-          inputType: InputType.MAIL,
-        ),
         Gap(context.MidSpacer),
         const LabelGlobalWidget(title: "Wallet Adress"),
         Gap(context.MidSpacer),
-        TextFieldGlobalWidget(inputType: InputType.TEXT, newText: (e) => {}),
+        TextFieldGlobalWidget(
+            inputType: InputType.TEXT, newText: (e) => WalletAddress(e)),
         Gap(context.MidSpacer),
         const LabelGlobalWidget(title: "Password"),
         Gap(context.MidSpacer),
         TextFieldGlobalWidget(
-            inputType: InputType.PASSWORD, newText: (e) => {}),
+            inputType: InputType.PASSWORD, newText: (e) => Password(e)),
       ],
     );
   }

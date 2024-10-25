@@ -12,8 +12,8 @@ class TextFieldGlobalWidget extends StatefulWidget {
   final int? maxLines;
   final InputType inputType;
   final APPLICATION_COLOR background;
-
   final Function(String) newText;
+
   const TextFieldGlobalWidget({
     super.key,
     this.initValue = "",
