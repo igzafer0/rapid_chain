@@ -1,0 +1,35 @@
+import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
+import 'package:rapid_chain/presentation/widget/label/label_global_widget.dart';
+import 'package:rapid_chain/presentation/widget/text_field/text_field_global_widget.dart';
+import 'package:rapid_chain/util/enum/input_type.dart';
+import 'package:rapid_chain/util/extension/design_extension/spacer_extension.dart';
+
+class LastAttempWidget extends StatelessWidget {
+  const LastAttempWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Gap(context.SmallSpacer),
+        const LabelGlobalWidget(title: "Nickname"),
+        Gap(context.MidSpacer),
+        TextFieldGlobalWidget(
+          newText: (e) => {},
+          inputType: InputType.MAIL,
+        ),
+        Gap(context.MidSpacer),
+        const LabelGlobalWidget(title: "Wallet Adress"),
+        Gap(context.MidSpacer),
+        TextFieldGlobalWidget(inputType: InputType.TEXT, newText: (e) => {}),
+        Gap(context.MidSpacer),
+        const LabelGlobalWidget(title: "Password"),
+        Gap(context.MidSpacer),
+        TextFieldGlobalWidget(
+            inputType: InputType.PASSWORD, newText: (e) => {}),
+      ],
+    );
+  }
+}

@@ -55,7 +55,7 @@ class _TextFieldGlobalWidgetState extends State<TextFieldGlobalWidget> {
         padding: context.MidHorizontalEdgeInsets,
         decoration: BoxDecoration(color: context.toColor(widget.background)),
         alignment: Alignment.centerLeft,
-        height: 55,
+        height: 50,
         child: textFieldWidget(context, widget.inputType),
       ),
     );

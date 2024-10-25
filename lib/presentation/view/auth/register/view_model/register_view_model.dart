@@ -10,4 +10,9 @@ abstract class _RegisterViewModelBase with Store, BaseViewModel {
   void setContext(BuildContext context) => viewModelContext = context;
   @override
   void init() {}
+  @observable
+  int attempIndex = 0;
+
+  @action
+  void changeAttemp(int index) => attempIndex = index;
 }

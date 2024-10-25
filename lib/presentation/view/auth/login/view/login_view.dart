@@ -67,6 +67,8 @@ class LoginView extends StatelessWidget {
                             children: [
                               Spacer(),
                               LabelGlobalMdWidget(
+                                  fontWeight: FontWeight.w300,
+                                  fontSize: FONT_SIZE.BODY_MEDIUM,
                                   title: "Forgot your password? *Reset*"),
                             ],
                           ),
@@ -74,11 +76,13 @@ class LoginView extends StatelessWidget {
                         ],
                       )),
                 ),
-                Gap(context.LargeSpacer),
+                Gap(context.SmallSpacer),
                 GestureDetector(
                   onTap: () =>
                       context.pushReplacementNamed(NavigationConstant.REGISTER),
                   child: const LabelGlobalMdWidget(
+                      fontSize: FONT_SIZE.BODY_MEDIUM,
+                      fontWeight: FontWeight.w300,
                       title: "Don't have an account? *Register*"),
                 ),
                 Gap(context.MidSpacer),
