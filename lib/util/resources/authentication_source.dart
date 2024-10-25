@@ -17,7 +17,7 @@ final class AuthenticationSource {
     if (_accessTokenModel != null) {
       if (_accessTokenModel!.expires!
           .toLocal()
-          .add(const Duration(minutes: -2))
+          .add(const Duration(seconds: 45))
           .isAfter(DateTime.now())) {
         return true;
       }

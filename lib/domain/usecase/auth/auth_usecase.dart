@@ -1,3 +1,4 @@
+import 'package:rapid_chain/data/dto/send/auth/login/login_dto.dart';
 import 'package:rapid_chain/data/dto/send/auth/register/register_dto.dart';
 import 'package:rapid_chain/domain/repository/auth/auth_repository.dart';
 import 'package:rapid_chain/injector.dart';
@@ -10,5 +11,9 @@ class AuthUseCase {
 
   Future<BaseErrorModel?> register(RegisterDto dto) async {
     return await locator<AuthRepository>().register(dto);
+  }
+
+  Future<BaseErrorModel?> login(LoginDto dto) async {
+    return await locator<AuthRepository>().login(dto);
   }
 }

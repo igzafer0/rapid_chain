@@ -1,3 +1,4 @@
+import 'package:rapid_chain/data/dto/send/auth/login/login_dto.dart';
 import 'package:rapid_chain/data/dto/send/auth/register/register_dto.dart';
 import 'package:rapid_chain/data/source/remote/auth_remote_data_source.dart';
 import 'package:rapid_chain/domain/repository/auth/auth_repository.dart';
@@ -13,5 +14,10 @@ class AuthRepositoryImpl implements AuthRepository {
   @override
   Future<BaseErrorModel?> register(RegisterDto dto) async {
     return await locator<AuthRemoteDataSource>().register(dto);
+  }
+
+  @override
+  Future<BaseErrorModel?> login(LoginDto dto) async {
+    return await locator<AuthRemoteDataSource>().login(dto);
   }
 }

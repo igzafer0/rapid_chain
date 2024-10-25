@@ -1,6 +1,7 @@
 // ignore_for_file: implementation_imports, depend_on_referenced_packages
 
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 import 'package:rapid_chain/config/data/authentication_manager.dart';
 import 'package:rapid_chain/config/data/remote_manager.dart';
 import 'package:rapid_chain/config/data/shared_manager.dart';
@@ -82,6 +83,7 @@ class AuthenticationInterceptor implements Interceptor {
           response.realUri.path == SourcePath.REGISTER.rawValue() ||
           response.realUri.path == SourcePath.CHANGE_PASSWORD.rawValue() ||
           response.realUri.path == SourcePath.RESET_PASSWORD.rawValue()) {
+        debugPrint("test");
         var result = TokenModel.fromJson(response.data);
         locator<AuthenticationSource>()
             .setAccessToken(result.accessTokenModel!);

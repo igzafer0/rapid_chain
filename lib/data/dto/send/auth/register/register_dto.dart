@@ -27,6 +27,6 @@ class RegisterDto {
         "walletaddress": walletAddress,
         "referrerReferenceCode": referrerReferenceCode,
         "otpcode": otpCode,
-        "username": password
+        "username": userName
       };
 }

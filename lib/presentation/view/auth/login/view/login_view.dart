@@ -47,7 +47,7 @@ class LoginView extends StatelessWidget {
                           const LabelGlobalWidget(title: "E-mail"),
                           Gap(context.MidSpacer),
                           TextFieldGlobalWidget(
-                            newText: (e) => {},
+                            newText: (e) => value.email = e,
                             inputType: InputType.MAIL,
                           ),
                           Gap(context.LargeSpacer),
@@ -55,11 +55,10 @@ class LoginView extends StatelessWidget {
                           Gap(context.MidSpacer),
                           TextFieldGlobalWidget(
                               inputType: InputType.PASSWORD,
-                              newText: (e) => {}),
+                              newText: (e) => value.password = e),
                           Gap(context.LargeSpacer),
                           ButtonGlobalWidget(
-                            onTap: () => context
-                                .pushReplacementNamed(NavigationConstant.HOME),
+                            onTap: () => value.login(),
                             text: "Log In",
                           ),
                           Gap(context.MidSpacer),

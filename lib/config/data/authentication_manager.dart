@@ -41,7 +41,7 @@ class AuthenticationManager {
           "Authorization":
               "Bearer ${locator<SharedManager>().getStringValue(PreferenceKey.REFRESH_TOKEN)}"
         },
-        baseUrl: "https://testdep.denizegece.com.tr",
+        baseUrl: "https://atalay.denizegece.com.tr",
       ),
     );
     try {
