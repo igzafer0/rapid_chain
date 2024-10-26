@@ -2,12 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:rapid_chain/config/base/view/base_view.dart';
+import 'package:rapid_chain/config/data/shared_manager.dart';
+import 'package:rapid_chain/injector.dart';
 import 'package:rapid_chain/presentation/view/home/pages/flow/view_model/flow_view_model.dart';
 import 'package:rapid_chain/presentation/view/widget/flow_post_widget/flow_post_widget.dart';
+import 'package:rapid_chain/presentation/widget/divider/divider_global_widget.dart';
 import 'package:rapid_chain/presentation/widget/image/network_image_global.dart';
 import 'package:rapid_chain/presentation/widget/label/label_global_widget.dart';
 import 'package:rapid_chain/util/constant/general_enum.dart';
 import 'package:rapid_chain/util/constant/navigation_constant.dart';
+import 'package:rapid_chain/util/enum/preference_key_enum.dart';
 import 'package:rapid_chain/util/extension/design_extension/edge_insets_extension.dart';
 import 'package:rapid_chain/util/extension/design_extension/spacer_extension.dart';
 
@@ -41,8 +45,9 @@ class FlowView extends StatelessWidget {
                       ),
                     ),
                     Gap(context.MidSpacer),
-                    const LabelGlobalWidget(
-                      title: "Zafer",
+                    LabelGlobalWidget(
+                      title: locator<SharedManager>()
+                          .getStringValue(PreferenceKey.NAME),
                       fontSize: FONT_SIZE.TITLE_LARGE,
                       fontWeight: FontWeight.w800,
                     ),
@@ -58,6 +63,8 @@ class FlowView extends StatelessWidget {
                   ],
                 ),
               ),
+              Gap(context.MidSpacer),
+              const DividerGlobalWidget(),
               Gap(context.LargeSpacer),
               Expanded(
                 child: ListView(

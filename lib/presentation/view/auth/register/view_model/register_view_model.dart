@@ -93,7 +93,7 @@ abstract class _RegisterViewModelBase with Store, BaseViewModel {
     ));
 
     if (result == null) {
-      viewModelContext.pushNamed(NavigationConstant.HOME);
+      viewModelContext.pushNamed(NavigationConstant.MAIN);
     } else {
       if (result.errors?.isNotEmpty ?? false) {
         snackBar(result.errors!.entries.first.value.first);
