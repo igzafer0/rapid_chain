@@ -8,7 +8,9 @@ enum SourcePath {
   REGISTER,
   RESET_PASSWORD,
   CHANGE_PASSWORD,
-  REFRESH_TOKEN
+  REFRESH_TOKEN,
+  VALIDATE_OTP,
+  VALIDATE_WALLET,
 }
 
 extension SourcePathExtension on SourcePath {
@@ -22,6 +24,8 @@ extension SourcePathExtension on SourcePath {
       SourcePath.REFRESH_TOKEN => "/auth/refresh",
       SourcePath.CHANGE_PASSWORD => "/auth/registser",
       SourcePath.RESET_PASSWORD => "/auth/register",
+      SourcePath.VALIDATE_OTP => "/auth/validateotp",
+      SourcePath.VALIDATE_WALLET => "/auth/validatewallet",
     };
   }
 }

@@ -16,4 +16,12 @@ class AuthUseCase {
   Future<BaseErrorModel?> login(LoginDto dto) async {
     return await locator<AuthRepository>().login(dto);
   }
+
+  Future<BaseErrorModel?> validateOtp(Map<String, String> dto) async {
+    return await locator<AuthRepository>().validateOtp(dto);
+  }
+
+  Future<BaseErrorModel?> validateWallet(Map<String, String> dto) async {
+    return await locator<AuthRepository>().validateWallet(dto);
+  }
 }

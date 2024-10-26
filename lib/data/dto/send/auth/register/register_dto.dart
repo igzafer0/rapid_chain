@@ -25,7 +25,8 @@ class RegisterDto {
         "email": email,
         "password": password,
         "walletAddress": walletAddress,
-        "referrerReferenceCode": referrerReferenceCode,
+        "referrerReferenceCode":
+            referrerReferenceCode.isEmpty ? null : referrerReferenceCode,
         "otpcode": otpCode,
         "username": userName
       };

@@ -10,6 +10,8 @@ abstract class AuthRemoteDataSource {
   Future<BaseErrorModel?> sendOtp(Map<String, String> dto);
   Future<BaseErrorModel?> register(RegisterDto dto);
   Future<BaseErrorModel?> login(LoginDto dto);
+  Future<BaseErrorModel?> validateOtp(Map<String, String> dto);
+  Future<BaseErrorModel?> validateWallet(Map<String, String> dto);
 }
 
 class AuthRemoteDataSourceImpl extends AuthRemoteDataSource {
@@ -43,6 +45,30 @@ class AuthRemoteDataSourceImpl extends AuthRemoteDataSource {
       await locator<RemoteManager>()
           .networkManager
           .post(SourcePath.LOGIN.rawValue(), data: dto.toJson());
+      return null;
+    } on DioException catch (e) {
+      return BaseErrorModel.fromJson(e.response?.data ?? {});
+    }
+  }
+
+  @override
+  Future<BaseErrorModel?> validateOtp(Map<String, String> dto) async {
+    try {
+      await locator<RemoteManager>()
+          .networkManager
+          .post(SourcePath.VALIDATE_OTP.rawValue(), data: dto);
+      return null;
+    } on DioException catch (e) {
+      return BaseErrorModel.fromJson(e.response?.data ?? {});
+    }
+  }
+
+  @override
+  Future<BaseErrorModel?> validateWallet(Map<String, String> dto) async {
+    try {
+      await locator<RemoteManager>()
+          .networkManager
+          .post(SourcePath.VALIDATE_WALLET.rawValue(), data: dto);
       return null;
     } on DioException catch (e) {
       return BaseErrorModel.fromJson(e.response?.data ?? {});

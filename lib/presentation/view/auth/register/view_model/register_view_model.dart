@@ -38,16 +38,46 @@ abstract class _RegisterViewModelBase with Store, BaseViewModel {
   void nextAttemp() {
     if (attempIndex == 0) {
       _sendOtp();
-    } else if (attempIndex == 3) {
-      _register();
+    } else if (attempIndex == 1) {
+      _validateOtp();
+    } else if (attempIndex == 2) {
+      _validateWallet();
     } else {
-      attempIndex += 1;
+      _register();
     }
   }
 
   @action
   void backAttemp() {
     attempIndex -= 1;
+  }
+
+  Future<void> _validateOtp() async {
+    var result = await authUseCase
+        .validateOtp({"email": email, "otpcode": verificationCode});
+    if (result == null) {
+      attempIndex += 1;
+    } else {
+      if (result.errors?.isNotEmpty ?? false) {
+        snackBar(result.errors!.entries.first.value.first);
+      } else {
+        snackBar(result.title ?? "");
+      }
+    }
+  }
+
+  Future<void> _validateWallet() async {
+    var result =
+        await authUseCase.validateWallet({"walletaddress": walletAddress});
+    if (result == null) {
+      attempIndex += 1;
+    } else {
+      if (result.errors?.isNotEmpty ?? false) {
+        snackBar(result.errors!.entries.first.value.first);
+      } else {
+        snackBar(result.title ?? "");
+      }
+    }
   }
 
   Future<void> _register() async {

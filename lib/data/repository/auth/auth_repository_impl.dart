@@ -20,4 +20,14 @@ class AuthRepositoryImpl implements AuthRepository {
   Future<BaseErrorModel?> login(LoginDto dto) async {
     return await locator<AuthRemoteDataSource>().login(dto);
   }
+
+  @override
+  Future<BaseErrorModel?> validateOtp(Map<String, String> dto) async {
+    return await locator<AuthRemoteDataSource>().validateOtp(dto);
+  }
+
+  @override
+  Future<BaseErrorModel?> validateWallet(Map<String, String> dto) async {
+    return await locator<AuthRemoteDataSource>().validateWallet(dto);
+  }
 }

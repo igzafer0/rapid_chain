@@ -6,4 +6,6 @@ abstract class AuthRepository {
   Future<BaseErrorModel?> sendOtp(Map<String, String> dto);
   Future<BaseErrorModel?> register(RegisterDto dto);
   Future<BaseErrorModel?> login(LoginDto dto);
+  Future<BaseErrorModel?> validateOtp(Map<String, String> dto);
+  Future<BaseErrorModel?> validateWallet(Map<String, String> dto);
 }
