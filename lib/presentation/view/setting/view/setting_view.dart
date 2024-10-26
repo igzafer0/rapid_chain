@@ -3,6 +3,7 @@ import 'package:gap/gap.dart';
 import 'package:rapid_chain/config/base/view/base_view.dart';
 import 'package:rapid_chain/presentation/view/setting/view_model/setting_view_model.dart';
 import 'package:rapid_chain/presentation/view/setting/widget/setting_list_row_widget.dart';
+import 'package:rapid_chain/presentation/widget/appbar/appbar_global_widget.dart';
 import 'package:rapid_chain/presentation/widget/divider/divider_global_widget.dart';
 import 'package:rapid_chain/presentation/widget/label/label_global_widget.dart';
 import 'package:rapid_chain/util/constant/general_enum.dart';
@@ -20,11 +21,15 @@ class SettingView extends StatelessWidget {
         model.init();
       },
       onPageBuilder: (BuildContext context, SettingViewModel value) => Scaffold(
+        appBar: const AppbarGlobalWidget(
+          title: "Settings",
+        ),
         body: SafeArea(
           bottom: false,
           child: ListView(
             padding: context.MidHorizontalEdgeInsets,
             children: [
+              Gap(context.MidSpacer),
               const LabelGlobalWidget(
                 title: "Profile",
                 fontWeight: FontWeight.w800,
