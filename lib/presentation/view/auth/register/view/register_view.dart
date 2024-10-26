@@ -7,6 +7,7 @@ import 'package:rapid_chain/presentation/view/auth/register/view_model/register_
 import 'package:rapid_chain/presentation/view/auth/register/widget/email_verification_widget.dart';
 import 'package:rapid_chain/presentation/view/auth/register/widget/first_attemp_widget.dart';
 import 'package:rapid_chain/presentation/view/auth/register/widget/name_surname_attemp_widget.dart';
+import 'package:rapid_chain/presentation/view/auth/register/widget/wallet_address_widget.dart';
 import 'package:rapid_chain/presentation/widget/button/button_global_widget.dart';
 import 'package:rapid_chain/presentation/widget/card/card_global_widget.dart';
 import 'package:rapid_chain/presentation/widget/label/label_global_md_widget.dart';
@@ -46,8 +47,6 @@ class RegisterView extends StatelessWidget {
                             if (value.attempIndex == 0) {
                               return FirstAttempWidget(
                                 initEmail: value.email,
-                                initReferanceCode: value.referenceCode,
-                                ReferanceCode: (p0) => value.referenceCode = p0,
                                 Email: (p0) => value.email = p0,
                               );
                             } else if (value.attempIndex == 1) {
@@ -56,12 +55,17 @@ class RegisterView extends StatelessWidget {
                                   verificationCode: (p0) =>
                                       value.verificationCode = p0,
                                   onTap: () => value.backAttemp());
+                            } else if (value.attempIndex == 2) {
+                              return WalletAddressWidget(
+                                WalletAddress: (p0) => value.walletAddress = p0,
+                              );
                             } else {
                               return NameSurnameAttempWidget(
                                 Nickname: (p0) => value.nickname = p0,
                                 Password: (p0) => value.password = p0,
                                 Name: (p0) => value.name = p0,
                                 Surname: (p0) => value.surname = p0,
+                                ReferanceCode: (p0) => value.referenceCode = p0,
                               );
                             }
                           }),
@@ -69,7 +73,7 @@ class RegisterView extends StatelessWidget {
                           Observer(builder: (context) {
                             return ButtonGlobalWidget(
                               onTap: () => value.nextAttemp(),
-                              text: value.attempIndex > 1 ? "Register" : "Next",
+                              text: value.attempIndex > 2 ? "Register" : "Next",
                             );
                           }),
                           Gap(context.MidSpacer)

@@ -38,7 +38,7 @@ abstract class _RegisterViewModelBase with Store, BaseViewModel {
   void nextAttemp() {
     if (attempIndex == 0) {
       _sendOtp();
-    } else if (attempIndex == 2) {
+    } else if (attempIndex == 3) {
       _register();
     } else {
       attempIndex += 1;

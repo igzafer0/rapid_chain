@@ -10,12 +10,14 @@ class NameSurnameAttempWidget extends StatelessWidget {
   final Function(String) Surname;
   final Function(String) Nickname;
   final Function(String) Password;
+  final Function(String) ReferanceCode;
 
   const NameSurnameAttempWidget(
       {required this.Name,
       required this.Surname,
       required this.Nickname,
       required this.Password,
+      required this.ReferanceCode,
       super.key});
 
   @override
@@ -62,10 +64,13 @@ class NameSurnameAttempWidget extends StatelessWidget {
           inputType: InputType.MAIL,
         ),
         Gap(context.MidSpacer),
-        const LabelGlobalWidget(title: "Wallet Adress"),
+        const LabelGlobalWidget(title: "Referance Code"),
         Gap(context.MidSpacer),
         TextFieldGlobalWidget(
-            inputType: InputType.TEXT, newText: (e) => " WalletAddress(e)"),
+          inputType: InputType.MAIL,
+          hintText: "Referance code can be empty",
+          newText: (e) => ReferanceCode(e),
+        ),
         Gap(context.MidSpacer),
         const LabelGlobalWidget(title: "Password"),
         Gap(context.MidSpacer),

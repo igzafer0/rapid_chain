@@ -24,7 +24,7 @@ class RegisterDto {
         "surname": surName,
         "email": email,
         "password": password,
-        "walletaddress": walletAddress,
+        "walletAddress": walletAddress,
         "referrerReferenceCode": referrerReferenceCode,
         "otpcode": otpCode,
         "username": userName
