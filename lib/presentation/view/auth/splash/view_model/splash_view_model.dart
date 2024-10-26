@@ -22,10 +22,8 @@ abstract class _SplashViewModelBase with Store, BaseViewModel {
 
   Future<void> _checkLogin() async {
     var result = await useCase.me();
-    if (result == null) {
+    if (result.isRight) {
       viewModelContext.pushReplacementNamed(NavigationConstant.HOME);
-    } else {
-      debugPrint("test ${result.title}");
     }
   }
 }

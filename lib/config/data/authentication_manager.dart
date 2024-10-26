@@ -23,6 +23,7 @@ class AuthenticationManager {
         "Authorization":
             "Bearer ${locator<AuthenticationSource>().getAccessToken()?.token}"
       });
+
       handler.next(options);
     }
   }

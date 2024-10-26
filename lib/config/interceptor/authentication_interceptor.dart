@@ -83,12 +83,14 @@ class AuthenticationInterceptor implements Interceptor {
           response.realUri.path == SourcePath.REGISTER.rawValue() ||
           response.realUri.path == SourcePath.CHANGE_PASSWORD.rawValue() ||
           response.realUri.path == SourcePath.RESET_PASSWORD.rawValue()) {
-        debugPrint("test");
         var result = TokenModel.fromJson(response.data);
         locator<AuthenticationSource>()
             .setAccessToken(result.accessTokenModel!);
         locator<SharedManager>().setStringValue(
             PreferenceKey.REFRESH_TOKEN, result.refreshToken ?? "");
+
+        debugPrint(
+            "debugprint ${locator<AuthenticationSource>().getAccessToken()?.token}");
       }
     }
     handler.next(response);

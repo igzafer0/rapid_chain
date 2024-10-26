@@ -40,6 +40,17 @@ mixin _$RegisterViewModel on _RegisterViewModelBase, Store {
   }
 
   @override
+  void backAttemp() {
+    final _$actionInfo = _$_RegisterViewModelBaseActionController.startAction(
+        name: '_RegisterViewModelBase.backAttemp');
+    try {
+      return super.backAttemp();
+    } finally {
+      _$_RegisterViewModelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 attempIndex: ${attempIndex}
