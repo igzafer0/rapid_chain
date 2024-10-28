@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:rapid_chain/config/base/view/base_view.dart';
+import 'package:rapid_chain/config/data/shared_manager.dart';
+import 'package:rapid_chain/injector.dart';
 import 'package:rapid_chain/presentation/view/home/pages/referance/view_model/referance_view_model.dart';
 import 'package:rapid_chain/presentation/view/home/pages/referance/widget/referanced_list_row_widget.dart';
 import 'package:rapid_chain/presentation/widget/button/button_global_widget.dart';
@@ -8,8 +10,10 @@ import 'package:rapid_chain/presentation/widget/card/card_global_widget.dart';
 import 'package:rapid_chain/presentation/widget/divider/divider_global_widget.dart';
 import 'package:rapid_chain/presentation/widget/label/label_global_widget.dart';
 import 'package:rapid_chain/util/constant/general_enum.dart';
+import 'package:rapid_chain/util/enum/preference_key_enum.dart';
 import 'package:rapid_chain/util/extension/design_extension/edge_insets_extension.dart';
 import 'package:rapid_chain/util/extension/design_extension/spacer_extension.dart';
+import 'package:share_plus/share_plus.dart';
 
 class ReferanceView extends StatelessWidget {
   const ReferanceView({super.key});
@@ -38,9 +42,10 @@ class ReferanceView extends StatelessWidget {
                           title:
                               "You can earn extra points by sharing the code with your friends."),
                       Gap(context.LargeSpacer),
-                      const Center(
+                      Center(
                         child: LabelGlobalWidget(
-                          title: "1QJU2L",
+                          title: locator<SharedManager>()
+                              .getStringValue(PreferenceKey.REFERANCE_CODE),
                           letterSpace: 10,
                           fontSize: FONT_SIZE.DISPLAY_MEDIUM,
                           fontWeight: FontWeight.w900,
@@ -48,7 +53,8 @@ class ReferanceView extends StatelessWidget {
                       ),
                       Gap(context.LargeSpacer),
                       ButtonGlobalWidget(
-                        onTap: () => {},
+                        onTap: () async => await Share.share(
+                            'My Rapid Chain referance code: ${locator<SharedManager>().getStringValue(PreferenceKey.REFERANCE_CODE)}'),
                         text: "Share",
                       )
                     ],

@@ -27,6 +27,8 @@ abstract class _SplashViewModelBase with Store, BaseViewModel {
     if (result.isRight) {
       locator<SharedManager>()
           .setStringValue(PreferenceKey.NAME, result.right.name);
+      locator<SharedManager>().setStringValue(
+          PreferenceKey.REFERANCE_CODE, result.right.referanceCode);
       viewModelContext.pushReplacementNamed(NavigationConstant.HOME);
     }
   }
