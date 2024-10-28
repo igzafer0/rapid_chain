@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:rapid_chain/domain/entity/user_entity.dart';
+import 'package:rapid_chain/domain/entity/user/user_entity.dart';
 
 part 'user_dto.g.dart';
 
