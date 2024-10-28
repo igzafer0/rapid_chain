@@ -11,6 +11,7 @@ enum SourcePath {
   REFRESH_TOKEN,
   VALIDATE_OTP,
   VALIDATE_WALLET,
+  TASK_LIST,
 }
 
 extension SourcePathExtension on SourcePath {
@@ -26,6 +27,7 @@ extension SourcePathExtension on SourcePath {
       SourcePath.RESET_PASSWORD => "/auth/register",
       SourcePath.VALIDATE_OTP => "/auth/validateotp",
       SourcePath.VALIDATE_WALLET => "/auth/validatewallet",
+      SourcePath.TASK_LIST => "/task/activecampaingtask",
     };
   }
 }

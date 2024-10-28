@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:gap/gap.dart';
 import 'package:rapid_chain/config/base/view/base_view.dart';
 import 'package:rapid_chain/presentation/view/home/pages/code/view_model/code_view_model.dart';
@@ -68,20 +69,24 @@ class CodeView extends StatelessWidget {
                 fontSize: FONT_SIZE.BODY_MEDIUM,
               ),
               Gap(context.LargeSpacer),
-              ListView.builder(
-                padding: EdgeInsets.zero,
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                itemCount: 10,
-                itemBuilder: (context, index) {
-                  return Container(
-                    margin: context.MidOnlyBottomEdgeInsets,
-                    child: TaskListRowWidget(
-                      text: "indexo: $index",
-                    ),
-                  );
-                },
-              )
+              Observer(builder: (context) {
+                return ListView.builder(
+                  padding: EdgeInsets.zero,
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemCount: value.taskList.length,
+                  itemBuilder: (context, index) {
+                    return Container(
+                      margin: context.MidOnlyBottomEdgeInsets,
+                      child: TaskListRowWidget(
+                        cover: value.taskList[index].cover,
+                        text: value.taskList[index].title,
+                        point: value.taskList[index].point,
+                      ),
+                    );
+                  },
+                );
+              })
             ],
           ),
         ),

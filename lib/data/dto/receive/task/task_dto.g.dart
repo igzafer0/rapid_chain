@@ -12,6 +12,9 @@ TaskDto _$TaskDtoFromJson(Map<String, dynamic> json) => TaskDto(
       point: (json['point'] as num?)?.toInt(),
       url: json['url'] as String?,
       isCollected: json['isCollected'] as bool?,
+      coverImage: json['coverImage'] == null
+          ? null
+          : MediaDto.fromJson(json['coverImage'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$TaskDtoToJson(TaskDto instance) => <String, dynamic>{
@@ -20,4 +23,5 @@ Map<String, dynamic> _$TaskDtoToJson(TaskDto instance) => <String, dynamic>{
       'point': instance.point,
       'url': instance.url,
       'isCollected': instance.isCollected,
+      'coverImage': instance.coverImage,
     };
