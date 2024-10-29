@@ -78,10 +78,14 @@ class CodeView extends StatelessWidget {
                   itemBuilder: (context, index) {
                     return Container(
                       margin: context.MidOnlyBottomEdgeInsets,
-                      child: TaskListRowWidget(
-                        cover: value.taskList[index].cover,
-                        text: value.taskList[index].title,
-                        point: value.taskList[index].point,
+                      child: GestureDetector(
+                        onTap: () => value.taskDetail(value.taskList[index].id),
+                        child: TaskListRowWidget(
+                          collected: value.taskList[index].collected,
+                          cover: value.taskList[index].cover,
+                          text: value.taskList[index].title,
+                          point: value.taskList[index].point,
+                        ),
                       ),
                     );
                   },

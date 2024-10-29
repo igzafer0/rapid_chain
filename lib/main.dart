@@ -5,10 +5,11 @@ import 'package:rapid_chain/config/theme/dark/app_theme_dark.dart';
 import 'package:rapid_chain/injector.dart' as di;
 import 'package:rapid_chain/injector.dart';
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   di.init();
   locator<SharedManager>();
+  await Future.delayed(const Duration(milliseconds: 100));
   runApp(const MyApp());
 }
 

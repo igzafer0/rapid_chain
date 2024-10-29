@@ -14,4 +14,13 @@ class TaskRepositoryImpl implements TaskRepository {
     }
     return Left(result.left);
   }
+
+  @override
+  Future<Either<BaseErrorModel, TaskEntity>> taskDetail(int taskId) async {
+    var result = await locator<TaskRemoteDataSource>().taskDetail(taskId);
+    if (result.isRight) {
+      return Right(result.right.toEntity());
+    }
+    return Left(result.left);
+  }
 }

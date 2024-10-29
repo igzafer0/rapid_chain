@@ -8,4 +8,8 @@ class TaskUseCase {
   Future<Either<BaseErrorModel, List<TaskEntity>>> taskList() async {
     return await locator<TaskRepository>().taskList();
   }
+
+  Future<Either<BaseErrorModel, TaskEntity>> taskDetail(int taskId) async {
+    return await locator<TaskRepository>().taskDetail(taskId);
+  }
 }

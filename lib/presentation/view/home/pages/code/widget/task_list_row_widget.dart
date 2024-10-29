@@ -12,39 +12,44 @@ class TaskListRowWidget extends StatelessWidget {
   final String text;
   final int point;
   final MediaEntity cover;
+  final bool collected;
 
   const TaskListRowWidget(
       {required this.text,
       required this.point,
       required this.cover,
+      required this.collected,
       super.key});
 
   @override
   Widget build(BuildContext context) {
     return CardGlobalWidget(
-      child: Padding(
-        padding: context.LargeAllEdgeInsets,
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            ClipRRect(
-              borderRadius: const BorderRadius.all(Radius.circular(5)),
-              child: SizedBox(
-                height: 30,
-                width: 30,
-                child: NetworkImageGlobal(source: cover.url),
+      child: Opacity(
+        opacity: collected ? 0.4 : 1,
+        child: Padding(
+          padding: context.LargeAllEdgeInsets,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              ClipRRect(
+                borderRadius: const BorderRadius.all(Radius.circular(5)),
+                child: SizedBox(
+                  height: 30,
+                  width: 30,
+                  child: NetworkImageGlobal(source: cover.url),
+                ),
               ),
-            ),
-            Gap(context.LargeSpacer),
-            Expanded(child: LabelGlobalWidget(title: text)),
-            Gap(context.LargeSpacer),
-            LabelGlobalWidget(
-              title: "+$point Points",
-              fontWeight: FontWeight.w700,
-              fontSize: FONT_SIZE.TITLE_MEDIUM,
-            ),
-          ],
+              Gap(context.MidSpacer),
+              Expanded(child: LabelGlobalWidget(title: text)),
+              Gap(context.LargeSpacer),
+              LabelGlobalWidget(
+                title: "+$point Points",
+                fontWeight: FontWeight.w700,
+                fontSize: FONT_SIZE.TITLE_SMALL,
+              ),
+            ],
+          ),
         ),
       ),
     );

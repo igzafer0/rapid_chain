@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 import 'package:rapid_chain/config/data/shared_manager.dart';
 import 'package:rapid_chain/config/navigation/navigation_route.dart';
 import 'package:rapid_chain/data/dto/receive/auth/token_model.dart';
@@ -23,6 +24,8 @@ class AuthenticationManager {
         "Authorization":
             "Bearer ${locator<AuthenticationSource>().getAccessToken()?.token}"
       });
+      debugPrint(
+          "test ${locator<AuthenticationSource>().getAccessToken()!.token}");
 
       handler.next(options);
     }
