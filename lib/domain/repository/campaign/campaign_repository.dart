@@ -4,4 +4,5 @@ import 'package:rapid_chain/util/resources/base_error_model.dart';
 
 abstract class CampaignRepository {
   Future<Either<BaseErrorModel, CampaignEntity>> activeCampaign();
+  Future<BaseErrorModel?> collectDailyPoint();
 }

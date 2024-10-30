@@ -64,13 +64,18 @@ abstract class _HomeViewModelBase with Store, BaseViewModel {
     var result = await usecase.activeCampaign();
     if (result.isRight) {
       campaignEntity = result.right;
-      showDialog(
-        barrierDismissible: true,
-        context: viewModelContext,
-        builder: (BuildContext context) {
-          return const CollectDialogWidget();
-        },
-      );
+      if (!campaignEntity!.isCollected) {
+        var data = await showDialog(
+          barrierDismissible: true,
+          context: viewModelContext,
+          builder: (BuildContext context) {
+            return const CollectDialogWidget();
+          },
+        );
+        if (data != null) {
+          usecase.collectDailyPoint();
+        }
+      }
     }
   }
 }

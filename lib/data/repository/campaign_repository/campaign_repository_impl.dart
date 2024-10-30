@@ -14,4 +14,9 @@ class CampaignRepositoryImpl implements CampaignRepository {
     }
     return Left(result.left);
   }
+
+  @override
+  Future<BaseErrorModel?> collectDailyPoint() async {
+    return await locator<CampaignRemoteDataSource>().collectDailyPoint();
+  }
 }

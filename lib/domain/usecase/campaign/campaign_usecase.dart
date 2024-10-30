@@ -8,4 +8,8 @@ class CampaignUsecase {
   Future<Either<BaseErrorModel, CampaignEntity>> activeCampaign() async {
     return await locator<CampaignRepository>().activeCampaign();
   }
+
+  Future<BaseErrorModel?> collectDailyPoint() async {
+    return await locator<CampaignRepository>().collectDailyPoint();
+  }
 }

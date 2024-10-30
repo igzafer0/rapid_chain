@@ -35,7 +35,7 @@ class CollectDialogWidget extends StatelessWidget {
               Padding(
                 padding: context.LargeHorizontalEdgeInsets,
                 child: ButtonGlobalWidget(
-                  onTap: () => context.pop(),
+                  onTap: () => context.pop(true),
                   text: "Collect",
                 ),
               )

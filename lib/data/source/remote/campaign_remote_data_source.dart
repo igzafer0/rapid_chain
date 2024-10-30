@@ -8,6 +8,7 @@ import 'package:rapid_chain/util/resources/base_error_model.dart';
 
 abstract class CampaignRemoteDataSource {
   Future<Either<BaseErrorModel, CampaignDto>> activeCampaign();
+  Future<BaseErrorModel?> collectDailyPoint();
 }
 
 class CampaignRemoteDataSourceImpl extends CampaignRemoteDataSource {
@@ -20,6 +21,18 @@ class CampaignRemoteDataSourceImpl extends CampaignRemoteDataSource {
       return Right(CampaignDto.fromJson(result.data));
     } on DioException catch (e) {
       return Left(BaseErrorModel.fromJson(e.response?.data ?? {}));
+    }
+  }
+
+  @override
+  Future<BaseErrorModel?> collectDailyPoint() async {
+    try {
+      await locator<RemoteManager>()
+          .networkManager
+          .post(SourcePath.COLLECT_DAILY_POINT.rawValue());
+      return null;
+    } on DioException catch (e) {
+      return BaseErrorModel.fromJson(e.response?.data ?? {});
     }
   }
 }
