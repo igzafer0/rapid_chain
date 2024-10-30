@@ -13,6 +13,7 @@ enum SourcePath {
   VALIDATE_WALLET,
   TASK_LIST,
   TASK,
+  ACTIVE_CAMPAIGN,
 }
 
 extension SourcePathExtension on SourcePath {
@@ -30,6 +31,7 @@ extension SourcePathExtension on SourcePath {
       SourcePath.VALIDATE_WALLET => "/auth/validatewallet",
       SourcePath.TASK_LIST => "/task/activecampaingtask",
       SourcePath.TASK => "/task/activecampaingtask/${data?[0]}",
+      SourcePath.ACTIVE_CAMPAIGN => "/campaing/activecampaing",
     };
   }
 }
