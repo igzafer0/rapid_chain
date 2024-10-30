@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rapid_chain/domain/entity/media/media_entity.dart';
 
 @immutable
 final class UserEntity {
@@ -7,15 +8,15 @@ final class UserEntity {
   final String surname;
   final String email;
   final String walletAddress;
-  final String referanceCode;
-  final String profileImage;
+  final String referenceCode;
+  final MediaEntity profileImage;
 
   const UserEntity({
     required this.id,
     required this.name,
     required this.email,
     required this.profileImage,
-    required this.referanceCode,
+    required this.referenceCode,
     required this.surname,
     required this.walletAddress,
   });

@@ -16,6 +16,7 @@ enum SourcePath {
   ACTIVE_CAMPAIGN,
   COLLECT_DAILY_POINT,
   COLLECT_CODE,
+  APP_INFO,
 }
 
 extension SourcePathExtension on SourcePath {
@@ -31,11 +32,12 @@ extension SourcePathExtension on SourcePath {
       SourcePath.RESET_PASSWORD => "/auth/register",
       SourcePath.VALIDATE_OTP => "/auth/validateotp",
       SourcePath.VALIDATE_WALLET => "/auth/validatewallet",
-      SourcePath.TASK_LIST => "/task/activecampaingtask",
-      SourcePath.TASK => "/task/activecampaingtask/${data?[0]}",
-      SourcePath.ACTIVE_CAMPAIGN => "/campaing/activecampaing",
-      SourcePath.COLLECT_DAILY_POINT => "/campaing/claimdailypoint",
+      SourcePath.TASK_LIST => "/task/activecampaigntask",
+      SourcePath.TASK => "/task/activecampaigntask/${data?[0]}",
+      SourcePath.ACTIVE_CAMPAIGN => "/campaign/activecampaign",
+      SourcePath.COLLECT_DAILY_POINT => "/campaign/claimdailypoint",
       SourcePath.COLLECT_CODE => "/code/claimcodepoint",
+      SourcePath.APP_INFO => "/appinfo",
     };
   }
 }

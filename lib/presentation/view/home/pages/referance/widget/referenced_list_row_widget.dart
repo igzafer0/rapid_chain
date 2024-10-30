@@ -6,9 +6,9 @@ import 'package:rapid_chain/presentation/widget/label/label_global_widget.dart';
 import 'package:rapid_chain/util/extension/design_extension/edge_insets_extension.dart';
 import 'package:rapid_chain/util/extension/design_extension/spacer_extension.dart';
 
-class ReferancedListRowWidget extends StatelessWidget {
+class ReferencedListRowWidget extends StatelessWidget {
   final String text;
-  const ReferancedListRowWidget({required this.text, super.key});
+  const ReferencedListRowWidget({required this.text, super.key});
 
   @override
   Widget build(BuildContext context) {

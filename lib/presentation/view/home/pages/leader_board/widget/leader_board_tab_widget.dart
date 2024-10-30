@@ -48,7 +48,7 @@ class LeaderBoardTabWidget extends StatelessWidget {
                   child: const SizedBox(
                     height: 50,
                     child: Center(
-                      child: LabelGlobalWidget(title: "Referances"),
+                      child: LabelGlobalWidget(title: "references"),
                     ),
                   ),
                 ),

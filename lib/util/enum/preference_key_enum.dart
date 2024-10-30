@@ -1,3 +1,3 @@
 // ignore_for_file: constant_identifier_names
 
-enum PreferenceKey { REFRESH_TOKEN, NAME, REFERANCE_CODE }
+enum PreferenceKey { REFRESH_TOKEN, NAME, reference_CODE }

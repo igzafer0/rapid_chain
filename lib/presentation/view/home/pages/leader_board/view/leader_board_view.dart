@@ -5,7 +5,7 @@ import 'package:rapid_chain/config/base/view/base_view.dart';
 import 'package:rapid_chain/presentation/view/home/pages/leader_board/view_model/leader_board_view_model.dart';
 import 'package:rapid_chain/presentation/view/home/pages/leader_board/widget/leader_board_tab_widget.dart';
 import 'package:rapid_chain/presentation/view/home/pages/leader_board/widget/tab/point_widget.dart';
-import 'package:rapid_chain/presentation/view/home/pages/leader_board/widget/tab/referance_widget.dart';
+import 'package:rapid_chain/presentation/view/home/pages/leader_board/widget/tab/reference_widget.dart';
 import 'package:rapid_chain/util/extension/design_extension/edge_insets_extension.dart';
 import 'package:rapid_chain/util/extension/design_extension/spacer_extension.dart';
 
@@ -43,7 +43,7 @@ class LeaderBoardView extends StatelessWidget {
                       if (value.PageIndex == 0) {
                         return const PointWidget();
                       }
-                      return const ReferanceWidget();
+                      return const ReferenceWidget();
                     },
                   ),
                 )

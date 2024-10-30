@@ -8,14 +8,14 @@ import 'package:rapid_chain/util/constant/general_enum.dart';
 import 'package:rapid_chain/util/extension/design_extension/edge_insets_extension.dart';
 import 'package:rapid_chain/util/extension/design_extension/spacer_extension.dart';
 
-class ReferanceWidget extends StatefulWidget {
-  const ReferanceWidget({super.key});
+class ReferenceWidget extends StatefulWidget {
+  const ReferenceWidget({super.key});
 
   @override
-  State<ReferanceWidget> createState() => _ReferanceWidgetState();
+  State<ReferenceWidget> createState() => _ReferenceWidgetState();
 }
 
-class _ReferanceWidgetState extends State<ReferanceWidget> {
+class _ReferenceWidgetState extends State<ReferenceWidget> {
   late ScrollController controller;
   List<String> items = List.generate(20, (index) => 'Base $index');
   @override
@@ -46,7 +46,7 @@ class _ReferanceWidgetState extends State<ReferanceWidget> {
       children: [
         const LabelGlobalMdWidget(
           title:
-              "With *10* referances, you are ranked *1021th* out of *10234* users.",
+              "With *10* references, you are ranked *1021th* out of *10234* users.",
           textColor: APPLICATION_COLOR.SUBTITLE,
           fontWeight: FontWeight.w500,
         ),

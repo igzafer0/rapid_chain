@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 import 'package:rapid_chain/config/base/view_model/base_view_model.dart';
-part 'referance_view_model.g.dart';
+part 'reference_view_model.g.dart';
 
-class ReferanceViewModel = _ReferanceViewModelBase with _$ReferanceViewModel;
+class ReferenceViewModel = _ReferenceViewModelBase with _$ReferenceViewModel;
 
-abstract class _ReferanceViewModelBase with Store, BaseViewModel {
+abstract class _ReferenceViewModelBase with Store, BaseViewModel {
   @override
   void setContext(BuildContext context) => viewModelContext = context;
   @override

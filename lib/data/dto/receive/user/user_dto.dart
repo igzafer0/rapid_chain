@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:rapid_chain/data/dto/receive/media/media_dto.dart';
 import 'package:rapid_chain/domain/entity/user/user_entity.dart';
 
 part 'user_dto.g.dart';
@@ -15,17 +16,17 @@ class UserDto {
   String? email;
   @JsonKey(name: "walletaddress")
   String? walletAddress;
-  @JsonKey(name: "referanceCode")
-  String? referanceCode;
+  @JsonKey(name: "referenceCode")
+  String? referenceCode;
   @JsonKey(name: "profileImage")
-  String? profileImage;
+  MediaDto? profileImage;
 
   UserDto({
     this.id,
     this.name,
     this.email,
     this.profileImage,
-    this.referanceCode,
+    this.referenceCode,
     this.surname,
     this.walletAddress,
   });
@@ -39,8 +40,10 @@ class UserDto {
         id: id ?? 0,
         name: name ?? "",
         email: email ?? "",
-        profileImage: profileImage ?? "",
-        referanceCode: referanceCode ?? "",
+        profileImage: profileImage != null
+            ? profileImage!.toEntity()
+            : MediaDto().toEntity(),
+        referenceCode: referenceCode ?? "",
         surname: surname ?? "",
         walletAddress: walletAddress ?? "",
       );

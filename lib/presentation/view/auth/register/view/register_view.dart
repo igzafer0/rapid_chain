@@ -65,7 +65,7 @@ class RegisterView extends StatelessWidget {
                                 Password: (p0) => value.password = p0,
                                 Name: (p0) => value.name = p0,
                                 Surname: (p0) => value.surname = p0,
-                                ReferanceCode: (p0) => value.referenceCode = p0,
+                                referenceCode: (p0) => value.referenceCode = p0,
                               );
                             }
                           }),
