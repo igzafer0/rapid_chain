@@ -23,4 +23,9 @@ class TaskRepositoryImpl implements TaskRepository {
     }
     return Left(result.left);
   }
+
+  @override
+  Future<BaseErrorModel?> collectCode(String code) async {
+    return await locator<TaskRemoteDataSource>().collectCode(code);
+  }
 }

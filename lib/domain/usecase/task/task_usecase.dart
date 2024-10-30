@@ -12,4 +12,8 @@ class TaskUseCase {
   Future<Either<BaseErrorModel, TaskEntity>> taskDetail(int taskId) async {
     return await locator<TaskRepository>().taskDetail(taskId);
   }
+
+  Future<BaseErrorModel?> collectCode(String code) async {
+    return await locator<TaskRepository>().collectCode(code);
+  }
 }

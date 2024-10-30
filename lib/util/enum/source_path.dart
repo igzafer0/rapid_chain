@@ -15,6 +15,7 @@ enum SourcePath {
   TASK,
   ACTIVE_CAMPAIGN,
   COLLECT_DAILY_POINT,
+  COLLECT_CODE,
 }
 
 extension SourcePathExtension on SourcePath {
@@ -34,6 +35,7 @@ extension SourcePathExtension on SourcePath {
       SourcePath.TASK => "/task/activecampaingtask/${data?[0]}",
       SourcePath.ACTIVE_CAMPAIGN => "/campaing/activecampaing",
       SourcePath.COLLECT_DAILY_POINT => "/campaing/claimdailypoint",
+      SourcePath.COLLECT_CODE => "/code/claimcodepoint",
     };
   }
 }

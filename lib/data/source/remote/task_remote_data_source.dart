@@ -9,6 +9,7 @@ import 'package:rapid_chain/util/resources/base_error_model.dart';
 abstract class TaskRemoteDataSource {
   Future<Either<BaseErrorModel, List<TaskDto>>> taskList();
   Future<Either<BaseErrorModel, TaskDto>> taskDetail(int taskId);
+  Future<BaseErrorModel?> collectCode(String code);
 }
 
 class TaskRemoteDataSourceImpl extends TaskRemoteDataSource {
@@ -34,6 +35,18 @@ class TaskRemoteDataSourceImpl extends TaskRemoteDataSource {
       return Right(TaskDto.fromJson(result.data));
     } on DioException catch (e) {
       return Left(BaseErrorModel.fromJson(e.response?.data ?? {}));
+    }
+  }
+
+  @override
+  Future<BaseErrorModel?> collectCode(String code) async {
+    try {
+      await locator<RemoteManager>()
+          .networkManager
+          .post(SourcePath.COLLECT_CODE.rawValue(), data: {"code": code});
+      return null;
+    } on DioException catch (e) {
+      return BaseErrorModel.fromJson(e.response?.data ?? {});
     }
   }
 }
