@@ -71,7 +71,7 @@ class FlowPostWidget extends StatelessWidget {
               GestureDetector(
                   onTap: () => context.pushNamed(
                         NavigationConstant.COMMENT_LIST,
-                        pathParameters: {"postId": "1"},
+                        pathParameters: {"postId": "${flowEntity.id}"},
                       ),
                   child: const Icon(Icons.forum, size: 32)),
             ],
@@ -97,7 +97,7 @@ class FlowPostWidget extends StatelessWidget {
         GestureDetector(
           onTap: () => context.pushNamed(
             NavigationConstant.COMMENT_LIST,
-            pathParameters: {"postId": "1"},
+            pathParameters: {"postId": "${flowEntity.id}"},
           ),
           child: Padding(
             padding: context.MidHorizontalEdgeInsets,
