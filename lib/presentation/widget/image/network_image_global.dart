@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class NetworkImageGlobal extends StatelessWidget {
   final String source;
@@ -13,6 +14,9 @@ class NetworkImageGlobal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (source.endsWith(".svg")) {
+      return SvgPicture.network(source, fit: fit, alignment: alignment);
+    }
     return Image.network(
       source,
       fit: fit,

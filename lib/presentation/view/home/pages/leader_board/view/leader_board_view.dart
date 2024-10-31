@@ -41,9 +41,18 @@ class LeaderBoardView extends StatelessWidget {
                   child: Observer(
                     builder: (context) {
                       if (value.PageIndex == 0) {
-                        return const PointWidget();
+                        if (value.pointLeaderBoardEntity != null) {
+                          return PointWidget(
+                            entity: value.pointLeaderBoardEntity!,
+                          );
+                        }
+                        return const SizedBox.shrink();
                       }
-                      return const ReferenceWidget();
+                      if (value.referenceLeaderBoardEntity != null) {
+                        return ReferenceWidget(
+                            entity: value.referenceLeaderBoardEntity!);
+                      }
+                      return const SizedBox.shrink();
                     },
                   ),
                 )

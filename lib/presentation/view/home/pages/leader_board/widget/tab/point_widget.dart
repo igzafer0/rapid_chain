@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:rapid_chain/presentation/view/home/pages/leader_board/widget/leader_board_list_row_widget.dart';
+import 'package:rapid_chain/domain/entity/leader_board/point_leader_board_entity.dart';
+import 'package:rapid_chain/presentation/view/home/pages/leader_board/widget/point_leader_board_list_row_widget.dart';
 import 'package:rapid_chain/presentation/widget/card/card_global_widget.dart';
 import 'package:rapid_chain/presentation/widget/label/label_global_md_widget.dart';
 import 'package:rapid_chain/presentation/widget/label/label_global_widget.dart';
@@ -9,7 +10,8 @@ import 'package:rapid_chain/util/extension/design_extension/edge_insets_extensio
 import 'package:rapid_chain/util/extension/design_extension/spacer_extension.dart';
 
 class PointWidget extends StatefulWidget {
-  const PointWidget({super.key});
+  final PointLeaderBoardEntity entity;
+  const PointWidget({required this.entity, super.key});
 
   @override
   State<PointWidget> createState() => _PointWidgetState();
@@ -17,7 +19,6 @@ class PointWidget extends StatefulWidget {
 
 class _PointWidgetState extends State<PointWidget> {
   late ScrollController controller;
-  List<String> items = List.generate(20, (index) => 'Base $index');
   @override
   void initState() {
     super.initState();
@@ -32,9 +33,10 @@ class _PointWidgetState extends State<PointWidget> {
 
   void _scrollListener() {
     if (controller.position.extentAfter < 500) {
-      setState(() {
-        items.addAll(List.generate(50, (index) => 'Inserted $index'));
-      });
+      // setState(() {
+      // items.addAll(List.generate(50, (index) => 'Inserted $index'));
+      // controller.removeListener(_scrollListener);
+      // });
     }
   }
 
@@ -44,9 +46,9 @@ class _PointWidgetState extends State<PointWidget> {
       padding: EdgeInsets.zero,
       controller: controller,
       children: [
-        const LabelGlobalMdWidget(
+        LabelGlobalMdWidget(
           title:
-              "With *10m* points, you are ranked *1021th* out of *10234* users.",
+              "With *${widget.entity.userPoint}* points, you are ranked *${widget.entity.userRank}* out of *${widget.entity.points.length}* users.",
           textColor: APPLICATION_COLOR.SUBTITLE,
           fontWeight: FontWeight.w500,
         ),
@@ -54,13 +56,13 @@ class _PointWidgetState extends State<PointWidget> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            const Expanded(
+            Expanded(
               child: CardGlobalWidget(
                 child: SizedBox(
                   height: 60,
                   child: Center(
                     child: LabelGlobalWidget(
-                      title: "#33",
+                      title: "#${widget.entity.userRank}",
                       fontSize: FONT_SIZE.HEADLINE_SMALL,
                       fontWeight: FontWeight.w700,
                     ),
@@ -69,13 +71,13 @@ class _PointWidgetState extends State<PointWidget> {
               ),
             ),
             Gap(context.MidSpacer),
-            const Expanded(
+            Expanded(
               child: CardGlobalWidget(
                 child: SizedBox(
                   height: 60,
                   child: Center(
                     child: LabelGlobalWidget(
-                      title: "10.876",
+                      title: "${widget.entity.userPoint}",
                       fontSize: FONT_SIZE.HEADLINE_SMALL,
                       fontWeight: FontWeight.w700,
                     ),
@@ -97,12 +99,12 @@ class _PointWidgetState extends State<PointWidget> {
           padding: EdgeInsets.zero,
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
-          itemCount: items.length,
+          itemCount: widget.entity.points.length,
           itemBuilder: (context, index) {
             return Container(
               margin: context.MidOnlyBottomEdgeInsets,
-              child: LeaderBoardListRowWidget(
-                text: items[index],
+              child: PointLeaderBoardListRowWidget(
+                user: widget.entity.points[index],
               ),
             );
           },

@@ -17,6 +17,8 @@ enum SourcePath {
   COLLECT_DAILY_POINT,
   COLLECT_CODE,
   APP_INFO,
+  POINT_LEADER_BOARD,
+  REFERENCE_LEADER_BOARD,
 }
 
 extension SourcePathExtension on SourcePath {
@@ -38,6 +40,8 @@ extension SourcePathExtension on SourcePath {
       SourcePath.COLLECT_DAILY_POINT => "/campaign/claimdailypoint",
       SourcePath.COLLECT_CODE => "/code/claimcodepoint",
       SourcePath.APP_INFO => "/appinfo",
+      SourcePath.POINT_LEADER_BOARD => "/leaderboard/pointleaderboard",
+      SourcePath.REFERENCE_LEADER_BOARD => "/leaderboard/referenceleaderboard",
     };
   }
 }
