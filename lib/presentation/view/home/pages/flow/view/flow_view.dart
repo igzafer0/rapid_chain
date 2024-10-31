@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:rapid_chain/config/base/view/base_view.dart';
@@ -66,17 +67,21 @@ class FlowView extends StatelessWidget {
               Gap(context.MidSpacer),
               const DividerGlobalWidget(),
               Gap(context.LargeSpacer),
-              Expanded(
-                child: ListView(
-                  children: [
-                    const FlowPostWidget(),
-                    Gap(context.LargeSpacer),
-                    const FlowPostWidget(),
-                    Gap(context.LargeSpacer),
-                    const FlowPostWidget(),
-                  ],
-                ),
-              )
+              Observer(builder: (context) {
+                if (value.flow == null) {
+                  return const SizedBox.shrink();
+                }
+                return Expanded(
+                  child: ListView.builder(
+                    itemCount: value.flow!.length,
+                    itemBuilder: (context, index) {
+                      return FlowPostWidget(
+                        flowEntity: value.flow![index],
+                      );
+                    },
+                  ),
+                );
+              })
             ],
           ),
         ),

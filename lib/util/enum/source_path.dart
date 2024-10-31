@@ -19,6 +19,7 @@ enum SourcePath {
   APP_INFO,
   POINT_LEADER_BOARD,
   REFERENCE_LEADER_BOARD,
+  FLOW,
 }
 
 extension SourcePathExtension on SourcePath {
@@ -42,6 +43,7 @@ extension SourcePathExtension on SourcePath {
       SourcePath.APP_INFO => "/appinfo",
       SourcePath.POINT_LEADER_BOARD => "/leaderboard/pointleaderboard",
       SourcePath.REFERENCE_LEADER_BOARD => "/leaderboard/referenceleaderboard",
+      SourcePath.FLOW => "/flow",
     };
   }
 }

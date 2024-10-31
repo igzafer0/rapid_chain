@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
+import 'package:rapid_chain/domain/entity/flow/flow_entity.dart';
 import 'package:rapid_chain/presentation/widget/image/network_image_global.dart';
 import 'package:rapid_chain/presentation/widget/label/label_global_md_widget.dart';
 import 'package:rapid_chain/presentation/widget/label/label_global_widget.dart';
@@ -11,7 +12,8 @@ import 'package:rapid_chain/util/extension/design_extension/size_extension.dart'
 import 'package:rapid_chain/util/extension/design_extension/spacer_extension.dart';
 
 class FlowPostWidget extends StatelessWidget {
-  const FlowPostWidget({super.key});
+  final FlowEntity flowEntity;
+  const FlowPostWidget({required this.flowEntity, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,15 +24,13 @@ class FlowPostWidget extends StatelessWidget {
           padding: context.MidHorizontalEdgeInsets,
           child: Row(
             children: [
-              const ClipRRect(
-                borderRadius: BorderRadius.all(Radius.circular(20)),
+              ClipRRect(
+                borderRadius: const BorderRadius.all(Radius.circular(20)),
                 child: SizedBox(
                   width: 40,
                   height: 40,
                   child: NetworkImageGlobal(
-                      fit: BoxFit.cover,
-                      source:
-                          "https://www.gurkangurkan.com/Resources/Press/ImageFile/8_m.jpg"),
+                      fit: BoxFit.cover, source: flowEntity.mediaItem.url),
                 ),
               ),
               Gap(context.MidSpacer),
@@ -56,11 +56,9 @@ class FlowPostWidget extends StatelessWidget {
         Gap(context.MidSpacer),
         SizedBox(
           width: context.ScreenWidth,
-          child: const AspectRatio(
+          child: AspectRatio(
             aspectRatio: 1,
-            child: NetworkImageGlobal(
-                source:
-                    "https://www.gurkangurkan.com/Resources/Press/ImageFile/8_m.jpg"),
+            child: NetworkImageGlobal(source: flowEntity.mediaItem.url),
           ),
         ),
         Gap(context.MidSpacer),
@@ -90,9 +88,8 @@ class FlowPostWidget extends StatelessWidget {
         ),
         Padding(
           padding: context.MidHorizontalEdgeInsets,
-          child: const LabelGlobalMdWidget(
-            title:
-                "*Rapid Chain* Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet",
+          child: LabelGlobalMdWidget(
+            title: "*Rapid Chain* ${flowEntity.content}",
             fontSize: FONT_SIZE.TITLE_SMALL,
           ),
         ),
