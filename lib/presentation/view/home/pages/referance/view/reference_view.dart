@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:gap/gap.dart';
 import 'package:rapid_chain/config/base/view/base_view.dart';
 import 'package:rapid_chain/config/data/shared_manager.dart';
@@ -76,20 +77,25 @@ class ReferenceView extends StatelessWidget {
                 fontSize: FONT_SIZE.BODY_MEDIUM,
               ),
               Gap(context.LargeSpacer),
-              ListView.builder(
-                padding: EdgeInsets.zero,
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                itemCount: 10,
-                itemBuilder: (context, index) {
-                  return Container(
-                    margin: context.MidOnlyBottomEdgeInsets,
-                    child: ReferencedListRowWidget(
-                      text: "indexo: $index",
-                    ),
-                  );
-                },
-              )
+              Observer(builder: (context) {
+                if (value.userList == null) {
+                  return const SizedBox.shrink();
+                }
+                return ListView.builder(
+                  padding: EdgeInsets.zero,
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemCount: value.userList!.length,
+                  itemBuilder: (context, index) {
+                    return Container(
+                      margin: context.MidOnlyBottomEdgeInsets,
+                      child: ReferencedListRowWidget(
+                        user: value.userList![index],
+                      ),
+                    );
+                  },
+                );
+              })
             ],
           ),
         ),

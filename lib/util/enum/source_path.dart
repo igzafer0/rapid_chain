@@ -23,6 +23,7 @@ enum SourcePath {
   FLOW_COMMENT,
   SEND_COMMENT,
   LIKE,
+  MY_REFERENCE
 }
 
 extension SourcePathExtension on SourcePath {
@@ -50,6 +51,7 @@ extension SourcePathExtension on SourcePath {
       SourcePath.FLOW_COMMENT => "/flow/${data?[0]}/comment",
       SourcePath.SEND_COMMENT => "/comment/flow/${data?[0]}",
       SourcePath.LIKE => "/flow/${data?[0]}/like",
+      SourcePath.MY_REFERENCE => "/user/myreferences",
     };
   }
 }

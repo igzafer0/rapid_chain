@@ -15,8 +15,8 @@ abstract class _LoginViewModelBase with Store, BaseViewModel {
   @override
   void setContext(BuildContext context) => viewModelContext = context;
 
-  String email = "mkutlu50@gmail.com";
-  String password = "mY.100813";
+  String email = "atalayyoluc";
+  String password = "10568332323";
 
   late AuthUseCase useCase;
 
