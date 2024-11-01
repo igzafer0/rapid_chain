@@ -15,6 +15,7 @@ class FlowCommentPreviewWidget extends StatelessWidget {
     return Column(
       children: [
         Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             LabelGlobalWidget(
               title: commentEntity
@@ -25,9 +26,12 @@ class FlowCommentPreviewWidget extends StatelessWidget {
               fontSize: FONT_SIZE.BODY_MEDIUM,
             ),
             Gap(context.SmallSpacer),
-            LabelGlobalWidget(
-              title: commentEntity.firstWhere((e) => e.parentId == -1).content,
-              fontSize: FONT_SIZE.BODY_MEDIUM,
+            Expanded(
+              child: LabelGlobalWidget(
+                title:
+                    commentEntity.firstWhere((e) => e.parentId == -1).content,
+                fontSize: FONT_SIZE.BODY_MEDIUM,
+              ),
             ),
           ],
         ),
@@ -35,7 +39,7 @@ class FlowCommentPreviewWidget extends StatelessWidget {
         ListView.builder(
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
-          padding: context.MidHorizontalEdgeInsets,
+          padding: context.LargeHorizontalEdgeInsets,
           itemCount: commentEntity.where((e) => e.parentId != -1).length,
           itemBuilder: (context, index) {
             var newList = commentEntity.where((e) => e.parentId != -1).toList();
@@ -47,9 +51,11 @@ class FlowCommentPreviewWidget extends StatelessWidget {
                   fontSize: FONT_SIZE.BODY_MEDIUM,
                 ),
                 Gap(context.SmallSpacer),
-                LabelGlobalWidget(
-                  title: newList[index].content,
-                  fontSize: FONT_SIZE.BODY_MEDIUM,
+                Expanded(
+                  child: LabelGlobalWidget(
+                    title: newList[index].content,
+                    fontSize: FONT_SIZE.BODY_MEDIUM,
+                  ),
                 ),
               ],
             );

@@ -76,6 +76,7 @@ class FlowView extends StatelessWidget {
                     itemCount: value.flow!.length,
                     itemBuilder: (context, index) {
                       return FlowPostWidget(
+                        onTap: () => value.like(value.flow![index].id),
                         flowEntity: value.flow![index],
                       );
                     },

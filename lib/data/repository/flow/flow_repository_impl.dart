@@ -29,4 +29,9 @@ class FlowRepositoryImpl implements FlowRepository {
       int flowId, Map<String, dynamic> data) async {
     return await locator<FlowRemoteDataSource>().sendComment(flowId, data);
   }
+
+  @override
+  Future<BaseErrorModel?> sendLike(int flowId) async {
+    return await locator<FlowRemoteDataSource>().sendLike(flowId);
+  }
 }

@@ -22,6 +22,7 @@ enum SourcePath {
   FLOW,
   FLOW_COMMENT,
   SEND_COMMENT,
+  LIKE,
 }
 
 extension SourcePathExtension on SourcePath {
@@ -48,6 +49,7 @@ extension SourcePathExtension on SourcePath {
       SourcePath.FLOW => "/flow",
       SourcePath.FLOW_COMMENT => "/flow/${data?[0]}/commnet",
       SourcePath.SEND_COMMENT => "/comment/flow/${data?[0]}",
+      SourcePath.LIKE => "/flow/${data?[0]}/like",
     };
   }
 }

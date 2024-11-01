@@ -10,6 +10,7 @@ abstract class FlowRemoteDataSource {
   Future<Either<BaseErrorModel, List<FlowDto>>> getFlow();
   Future<Either<BaseErrorModel, FlowDto>> getCommentList(int flowId);
   Future<BaseErrorModel?> sendComment(int flowId, Map<String, dynamic> data);
+  Future<BaseErrorModel?> sendLike(int flowId);
 }
 
 class FlowRemoteDataSourceImpl extends FlowRemoteDataSource {
@@ -45,6 +46,18 @@ class FlowRemoteDataSourceImpl extends FlowRemoteDataSource {
       await locator<RemoteManager>()
           .networkManager
           .post(SourcePath.SEND_COMMENT.rawValue(data: [flowId]), data: data);
+      return null;
+    } on DioException catch (e) {
+      return BaseErrorModel.fromJson(e.response?.data ?? {});
+    }
+  }
+
+  @override
+  Future<BaseErrorModel?> sendLike(int flowId) async {
+    try {
+      await locator<RemoteManager>()
+          .networkManager
+          .post(SourcePath.LIKE.rawValue(data: [flowId]));
       return null;
     } on DioException catch (e) {
       return BaseErrorModel.fromJson(e.response?.data ?? {});

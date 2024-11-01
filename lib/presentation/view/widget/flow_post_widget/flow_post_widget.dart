@@ -15,7 +15,9 @@ import 'package:rapid_chain/util/extension/string_extension.dart';
 
 class FlowPostWidget extends StatelessWidget {
   final FlowEntity flowEntity;
-  const FlowPostWidget({required this.flowEntity, super.key});
+  final VoidCallback onTap;
+  const FlowPostWidget(
+      {required this.flowEntity, required this.onTap, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -69,9 +71,14 @@ class FlowPostWidget extends StatelessWidget {
           padding: context.MidHorizontalEdgeInsets,
           child: Row(
             children: [
-              flowEntity.isLiked
-                  ? const Icon(Icons.favorite, size: 32)
-                  : const Icon(Icons.favorite_border, size: 32),
+              GestureDetector(
+                onTap: () => onTap(),
+                child: Builder(builder: (context) {
+                  return flowEntity.isLiked
+                      ? const Icon(Icons.favorite, size: 32)
+                      : const Icon(Icons.favorite_border, size: 32);
+                }),
+              ),
               Gap(context.LargeSpacer),
               GestureDetector(
                   onTap: () => context.pushNamed(

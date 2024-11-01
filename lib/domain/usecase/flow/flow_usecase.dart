@@ -17,4 +17,8 @@ class FlowUsecase {
       int flowId, Map<String, dynamic> data) async {
     return await locator<FlowRepository>().sendComment(flowId, data);
   }
+
+  Future<BaseErrorModel?> sendLike(int flowId) async {
+    return await locator<FlowRepository>().sendLike(flowId);
+  }
 }

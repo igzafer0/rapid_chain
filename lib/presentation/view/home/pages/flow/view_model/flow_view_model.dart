@@ -27,4 +27,9 @@ abstract class _FlowViewModelBase with Store, BaseViewModel {
       flow = result.right;
     }
   }
+
+  Future<void> like(int flowId) async {
+    await useCase.sendLike(flowId);
+    _getFlowData();
+  }
 }
