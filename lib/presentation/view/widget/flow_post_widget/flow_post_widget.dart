@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
+import 'package:rapid_chain/data/dto/receive/media/media_dto.dart';
 import 'package:rapid_chain/domain/entity/flow/flow_entity.dart';
 import 'package:rapid_chain/presentation/view/widget/flow_post_widget/flow_comment_preview_widget.dart';
+import 'package:rapid_chain/presentation/view/widget/flow_post_widget/flow_post_video_preview_widget.dart';
 import 'package:rapid_chain/presentation/widget/image/network_image_global.dart';
 import 'package:rapid_chain/presentation/widget/label/label_global_md_widget.dart';
 import 'package:rapid_chain/presentation/widget/label/label_global_widget.dart';
@@ -12,6 +14,7 @@ import 'package:rapid_chain/util/extension/design_extension/edge_insets_extensio
 import 'package:rapid_chain/util/extension/design_extension/size_extension.dart';
 import 'package:rapid_chain/util/extension/design_extension/spacer_extension.dart';
 import 'package:rapid_chain/util/extension/string_extension.dart';
+import 'package:rapid_chain/util/extension/theme_extension.dart';
 
 class FlowPostWidget extends StatelessWidget {
   final FlowEntity flowEntity;
@@ -59,11 +62,17 @@ class FlowPostWidget extends StatelessWidget {
           ),
         ),
         Gap(context.MidSpacer),
-        SizedBox(
+        Container(
+          color: context.toColor(APPLICATION_COLOR.DARK),
           width: context.ScreenWidth,
           child: AspectRatio(
             aspectRatio: 1,
-            child: NetworkImageGlobal(source: flowEntity.mediaItem.url),
+            child: Builder(builder: (context) {
+              if (flowEntity.mediaItem.mediaType == MEDIA_TYPE.IMAGE) {
+                return NetworkImageGlobal(source: flowEntity.mediaItem.url);
+              }
+              return FlowPostVideoPreviewWidget(source: flowEntity.mediaItem);
+            }),
           ),
         ),
         Gap(context.MidSpacer),
@@ -137,6 +146,7 @@ class FlowPostWidget extends StatelessWidget {
                           e.parentId == newList[index].id)
                       .toList());
             }),
+        Gap(context.LargeSpacer),
       ],
     );
   }

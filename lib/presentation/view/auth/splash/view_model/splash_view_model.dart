@@ -28,6 +28,8 @@ abstract class _SplashViewModelBase with Store, BaseViewModel {
       locator<SharedManager>()
           .setStringValue(PreferenceKey.NAME, result.right.name);
       locator<SharedManager>().setStringValue(
+          PreferenceKey.PROFILE_PICTURE, result.right.profileImage.url);
+      locator<SharedManager>().setStringValue(
           PreferenceKey.reference_CODE, result.right.referenceCode);
       viewModelContext.pushReplacementNamed(NavigationConstant.HOME);
     }

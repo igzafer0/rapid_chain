@@ -13,6 +13,7 @@ class TextFieldGlobalWidget extends StatefulWidget {
   final InputType inputType;
   final APPLICATION_COLOR background;
   final Function(String) newText;
+  final Function(TextEditingController)? controller;
 
   const TextFieldGlobalWidget({
     super.key,
@@ -22,6 +23,7 @@ class TextFieldGlobalWidget extends StatefulWidget {
     this.inputType = InputType.TEXT,
     this.maxLines,
     this.background = APPLICATION_COLOR.BACKGROUND,
+    this.controller,
     required this.newText,
   });
 
@@ -34,6 +36,9 @@ class _TextFieldGlobalWidgetState extends State<TextFieldGlobalWidget> {
 
   @override
   void initState() {
+    if (widget.controller != null) {
+      widget.controller!(_controller);
+    }
     _controller.addListener(() {
       widget.newText(_controller.text);
     });

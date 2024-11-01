@@ -32,6 +32,7 @@ abstract class _CommentListViewModelBase with Store, BaseViewModel {
     }
   }
 
+  TextEditingController? controller;
   @observable
   int? parentCommentId;
   @action
@@ -47,5 +48,6 @@ abstract class _CommentListViewModelBase with Store, BaseViewModel {
     });
     clearParentCommentId();
     _getComments();
+    controller!.clear();
   }
 }

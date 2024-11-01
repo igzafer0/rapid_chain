@@ -35,14 +35,14 @@ class FlowView extends StatelessWidget {
                 padding: context.MidHorizontalEdgeInsets,
                 child: Row(
                   children: [
-                    const ClipRRect(
-                      borderRadius: BorderRadius.all(Radius.circular(20)),
+                    ClipRRect(
+                      borderRadius: const BorderRadius.all(Radius.circular(20)),
                       child: SizedBox(
                         height: 40,
                         width: 40,
                         child: NetworkImageGlobal(
-                            source:
-                                "https://www.gurkangurkan.com/Resources/Press/ImageFile/8_m.jpg"),
+                            source: locator<SharedManager>()
+                                .getStringValue(PreferenceKey.PROFILE_PICTURE)),
                       ),
                     ),
                     Gap(context.MidSpacer),

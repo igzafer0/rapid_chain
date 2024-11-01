@@ -13,22 +13,17 @@ import 'package:rapid_chain/util/extension/design_extension/size_extension.dart'
 import 'package:rapid_chain/util/extension/design_extension/spacer_extension.dart';
 import 'package:rapid_chain/util/extension/theme_extension.dart';
 
-class CommentListView extends StatefulWidget {
+class CommentListView extends StatelessWidget {
   final int PostId;
   const CommentListView({required this.PostId, super.key});
 
-  @override
-  State<CommentListView> createState() => _CommentListViewState();
-}
-
-class _CommentListViewState extends State<CommentListView> {
   @override
   Widget build(BuildContext context) {
     return BaseView<CommentListViewModel>(
       viewModel: CommentListViewModel(),
       onModelReady: (model) {
         model.setContext(context);
-        model.flowId = widget.PostId;
+        model.flowId = PostId;
         model.init();
       },
       onPageBuilder: (BuildContext context, CommentListViewModel value) =>
@@ -100,17 +95,14 @@ class _CommentListViewState extends State<CommentListView> {
                   children: [
                     Expanded(
                       child: TextFieldGlobalWidget(
-                        key: Key(
-                            DateTime.now().millisecondsSinceEpoch.toString()),
+                        controller: (p0) => value.controller = p0,
                         newText: (e) => value.comment = e,
                         background: APPLICATION_COLOR.PRIMARY,
                       ),
                     ),
                     Gap(context.MidSpacer),
                     GestureDetector(
-                        onTap: () => setState(() {
-                              value.sendComment();
-                            }),
+                        onTap: () => value.sendComment(),
                         child: const Icon(Icons.send))
                   ],
                 ),
