@@ -48,7 +48,7 @@ class _ReferenceWidgetState extends State<ReferenceWidget> {
       children: [
         LabelGlobalMdWidget(
           title:
-              "With *${widget.entity.userReference}* references, you are ranked *${widget.entity.userRank}* out of *${widget.entity.references.length}* users.",
+              "With *${widget.entity.userReference}* references, you are ranked *${widget.entity.userRank}* out of *${widget.entity.totalParticipants}* users.",
           textColor: APPLICATION_COLOR.SUBTITLE,
           fontWeight: FontWeight.w500,
         ),

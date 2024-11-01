@@ -35,13 +35,13 @@ class ReferenceLeaderBoardDto {
 class ReferenceLeaderBoardUserDto {
   MediaDto? profilePicture;
   String? name;
-  int? reference;
+  int? referenceCount;
   int? rank;
 
   ReferenceLeaderBoardUserDto({
     this.profilePicture,
     this.name,
-    this.reference,
+    this.referenceCount,
     this.rank,
   });
 
@@ -55,7 +55,7 @@ class ReferenceLeaderBoardUserDto {
             ? profilePicture!.toEntity()
             : MediaDto().toEntity(),
         name: name ?? "",
-        reference: reference ?? 0,
+        reference: referenceCount ?? 0,
         rank: rank ?? 0,
       );
 }

@@ -34,7 +34,7 @@ ReferenceLeaderBoardUserDto _$ReferenceLeaderBoardUserDtoFromJson(
           ? null
           : MediaDto.fromJson(json['profilePicture'] as Map<String, dynamic>),
       name: json['name'] as String?,
-      reference: (json['reference'] as num?)?.toInt(),
+      referenceCount: (json['referenceCount'] as num?)?.toInt(),
       rank: (json['rank'] as num?)?.toInt(),
     );
 
@@ -43,6 +43,6 @@ Map<String, dynamic> _$ReferenceLeaderBoardUserDtoToJson(
     <String, dynamic>{
       'profilePicture': instance.profilePicture,
       'name': instance.name,
-      'reference': instance.reference,
+      'referenceCount': instance.referenceCount,
       'rank': instance.rank,
     };
