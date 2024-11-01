@@ -43,4 +43,9 @@ extension EdgeInsetsOnlyExtension on BuildContext {
   EdgeInsets get SmallOnlyBottomEdgeInsets => const EdgeInsets.only(bottom: 5);
   EdgeInsets get MidOnlyBottomEdgeInsets => const EdgeInsets.only(bottom: 10);
   EdgeInsets get LargeOnlyBottomEdgeInsets => const EdgeInsets.only(bottom: 20);
+
+  /* Top */
+  EdgeInsets get SmallOnlyTopEdgeInsets => const EdgeInsets.only(top: 5);
+  EdgeInsets get MidOnlyTopEdgeInsets => const EdgeInsets.only(top: 10);
+  EdgeInsets get LargeOnlyTopEdgeInsets => const EdgeInsets.only(top: 20);
 }

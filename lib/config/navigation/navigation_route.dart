@@ -7,6 +7,7 @@ import 'package:rapid_chain/presentation/view/auth/splash/view/splash_view.dart'
 import 'package:rapid_chain/presentation/view/flow_post/comment_list/view/comment_list_view.dart';
 import 'package:rapid_chain/presentation/view/home/view/home_view.dart';
 import 'package:rapid_chain/presentation/view/setting/view/setting_view.dart';
+import 'package:rapid_chain/presentation/view/video_player/view/video_player_view.dart';
 import 'package:rapid_chain/util/constant/navigation_constant.dart';
 
 final router = GoRouter(
@@ -28,22 +29,29 @@ final router = GoRouter(
       builder: (context, state) => const RegisterView(),
     ),
     GoRoute(
-        name: NavigationConstant.HOME,
-        path: NavigationConstant.HOME,
-        builder: (context, state) => const HomeView(),
-        routes: [
-          GoRoute(
-            name: NavigationConstant.setting,
-            path: NavigationConstant.setting,
-            builder: (context, state) => const SettingView(),
+      name: NavigationConstant.HOME,
+      path: NavigationConstant.HOME,
+      builder: (context, state) => const HomeView(),
+      routes: [
+        GoRoute(
+          name: NavigationConstant.VIDEO_PLAYER,
+          path: ":videoUrl",
+          builder: (context, state) =>
+              VideoPlayerView(url: state.pathParameters['videoUrl']!),
+        ),
+        GoRoute(
+          name: NavigationConstant.SETTINGS,
+          path: NavigationConstant.SETTINGS,
+          builder: (context, state) => const SettingView(),
+        ),
+        GoRoute(
+          name: NavigationConstant.COMMENT_LIST,
+          path: ":postId",
+          builder: (context, state) => CommentListView(
+            PostId: int.tryParse(state.pathParameters['postId']!) ?? 0,
           ),
-          GoRoute(
-            name: NavigationConstant.COMMENT_LIST,
-            path: ":postId",
-            builder: (context, state) => CommentListView(
-              PostId: int.tryParse(state.pathParameters['postId']!) ?? 0,
-            ),
-          ),
-        ]),
+        ),
+      ],
+    ),
   ],
 );

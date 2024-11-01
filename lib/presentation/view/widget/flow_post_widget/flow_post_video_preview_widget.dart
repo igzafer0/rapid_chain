@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:rapid_chain/domain/entity/media/media_entity.dart';
 import 'package:rapid_chain/presentation/widget/image/network_image_global.dart';
 import 'package:rapid_chain/util/constant/general_enum.dart';
+import 'package:rapid_chain/util/constant/navigation_constant.dart';
 import 'package:rapid_chain/util/extension/theme_extension.dart';
 import 'package:video_player/video_player.dart';
 
@@ -44,7 +46,7 @@ class _FlowPostVideoPreviewWidgetState
             child: Stack(
               children: [
                 AspectRatio(
-                  aspectRatio: 1 / 1,
+                  aspectRatio: 16 / 9,
                   child: NetworkImageGlobal(
                       source: widget.source.mediaMetaData.thumbnail),
                 ),
@@ -92,12 +94,19 @@ class _FlowPostVideoPreviewWidgetState
                     Positioned(
                       bottom: 10,
                       right: 10,
-                      child: CircleAvatar(
-                        maxRadius: 16,
-                        child: Icon(
-                          color: context.toColor(APPLICATION_COLOR.LIGHT),
-                          Icons.fullscreen,
-                          size: 20,
+                      child: GestureDetector(
+                        onTap: () {
+                          _controller.pause();
+                          context.pushNamed(NavigationConstant.VIDEO_PLAYER,
+                              pathParameters: {"videoUrl": widget.source.url});
+                        },
+                        child: CircleAvatar(
+                          maxRadius: 16,
+                          child: Icon(
+                            color: context.toColor(APPLICATION_COLOR.LIGHT),
+                            Icons.fullscreen,
+                            size: 20,
+                          ),
                         ),
                       ),
                     ),

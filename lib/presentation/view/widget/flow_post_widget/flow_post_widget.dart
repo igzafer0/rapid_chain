@@ -62,19 +62,16 @@ class FlowPostWidget extends StatelessWidget {
           ),
         ),
         Gap(context.MidSpacer),
-        Container(
-          color: context.toColor(APPLICATION_COLOR.DARK),
-          width: context.ScreenWidth,
-          child: AspectRatio(
-            aspectRatio: 1,
-            child: Builder(builder: (context) {
-              if (flowEntity.mediaItem.mediaType == MEDIA_TYPE.IMAGE) {
-                return NetworkImageGlobal(source: flowEntity.mediaItem.url);
-              }
-              return FlowPostVideoPreviewWidget(source: flowEntity.mediaItem);
-            }),
-          ),
-        ),
+        Builder(builder: (context) {
+          if (flowEntity.mediaItem.mediaType == MEDIA_TYPE.IMAGE) {
+            return AspectRatio(
+                aspectRatio: 1,
+                child: NetworkImageGlobal(source: flowEntity.mediaItem.url));
+          }
+          return AspectRatio(
+              aspectRatio: 16 / 9,
+              child: FlowPostVideoPreviewWidget(source: flowEntity.mediaItem));
+        }),
         Gap(context.MidSpacer),
         Padding(
           padding: context.MidHorizontalEdgeInsets,

@@ -55,7 +55,7 @@ class FlowView extends StatelessWidget {
                     const Spacer(),
                     GestureDetector(
                       onTap: () =>
-                          context.pushNamed(NavigationConstant.setting),
+                          context.pushNamed(NavigationConstant.SETTINGS),
                       child: const Icon(
                         Icons.settings,
                         size: 30,
