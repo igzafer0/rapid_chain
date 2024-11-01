@@ -34,12 +34,6 @@ final router = GoRouter(
       builder: (context, state) => const HomeView(),
       routes: [
         GoRoute(
-          name: NavigationConstant.VIDEO_PLAYER,
-          path: ":videoUrl",
-          builder: (context, state) =>
-              VideoPlayerView(url: state.pathParameters['videoUrl']!),
-        ),
-        GoRoute(
           name: NavigationConstant.SETTINGS,
           path: NavigationConstant.SETTINGS,
           builder: (context, state) => const SettingView(),
@@ -50,6 +44,12 @@ final router = GoRouter(
           builder: (context, state) => CommentListView(
             PostId: int.tryParse(state.pathParameters['postId']!) ?? 0,
           ),
+        ),
+        GoRoute(
+          name: NavigationConstant.VIDEO_PLAYER,
+          path: ":videoUrl",
+          builder: (context, state) =>
+              VideoPlayerView(url: state.pathParameters['videoUrl']!),
         ),
       ],
     ),

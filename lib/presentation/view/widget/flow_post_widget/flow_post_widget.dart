@@ -11,10 +11,8 @@ import 'package:rapid_chain/presentation/widget/label/label_global_widget.dart';
 import 'package:rapid_chain/util/constant/general_enum.dart';
 import 'package:rapid_chain/util/constant/navigation_constant.dart';
 import 'package:rapid_chain/util/extension/design_extension/edge_insets_extension.dart';
-import 'package:rapid_chain/util/extension/design_extension/size_extension.dart';
 import 'package:rapid_chain/util/extension/design_extension/spacer_extension.dart';
 import 'package:rapid_chain/util/extension/string_extension.dart';
-import 'package:rapid_chain/util/extension/theme_extension.dart';
 
 class FlowPostWidget extends StatelessWidget {
   final FlowEntity flowEntity;

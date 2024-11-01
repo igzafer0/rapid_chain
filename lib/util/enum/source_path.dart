@@ -47,7 +47,7 @@ extension SourcePathExtension on SourcePath {
       SourcePath.POINT_LEADER_BOARD => "/leaderboard/pointleaderboard",
       SourcePath.REFERENCE_LEADER_BOARD => "/leaderboard/referenceleaderboard",
       SourcePath.FLOW => "/flow",
-      SourcePath.FLOW_COMMENT => "/flow/${data?[0]}/commnet",
+      SourcePath.FLOW_COMMENT => "/flow/${data?[0]}/comment",
       SourcePath.SEND_COMMENT => "/comment/flow/${data?[0]}",
       SourcePath.LIKE => "/flow/${data?[0]}/like",
     };

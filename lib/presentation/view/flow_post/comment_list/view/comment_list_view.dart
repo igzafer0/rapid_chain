@@ -35,7 +35,7 @@ class CommentListView extends StatelessWidget {
               Gap(context.MidSpacer),
               Observer(builder: (context) {
                 if (value.flowEntity == null) {
-                  return const SizedBox.shrink();
+                  return const Spacer();
                 }
                 return Expanded(
                   child: ListView.builder(
