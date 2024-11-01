@@ -8,4 +8,13 @@ class FlowUsecase {
   Future<Either<BaseErrorModel, List<FlowEntity>>> getFlow() async {
     return await locator<FlowRepository>().getFlow();
   }
+
+  Future<Either<BaseErrorModel, FlowEntity>> getCommentList(int flowId) async {
+    return await locator<FlowRepository>().getCommentList(flowId);
+  }
+
+  Future<BaseErrorModel?> sendComment(
+      int flowId, Map<String, dynamic> data) async {
+    return await locator<FlowRepository>().sendComment(flowId, data);
+  }
 }

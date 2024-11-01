@@ -20,6 +20,8 @@ enum SourcePath {
   POINT_LEADER_BOARD,
   REFERENCE_LEADER_BOARD,
   FLOW,
+  FLOW_COMMENT,
+  SEND_COMMENT,
 }
 
 extension SourcePathExtension on SourcePath {
@@ -44,6 +46,8 @@ extension SourcePathExtension on SourcePath {
       SourcePath.POINT_LEADER_BOARD => "/leaderboard/pointleaderboard",
       SourcePath.REFERENCE_LEADER_BOARD => "/leaderboard/referenceleaderboard",
       SourcePath.FLOW => "/flow",
+      SourcePath.FLOW_COMMENT => "/flow/${data?[0]}/commnet",
+      SourcePath.SEND_COMMENT => "/comment/flow/${data?[0]}",
     };
   }
 }

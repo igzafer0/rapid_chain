@@ -14,4 +14,19 @@ class FlowRepositoryImpl implements FlowRepository {
     }
     return Left(result.left);
   }
+
+  @override
+  Future<Either<BaseErrorModel, FlowEntity>> getCommentList(int flowId) async {
+    var result = await locator<FlowRemoteDataSource>().getCommentList(flowId);
+    if (result.isRight) {
+      return Right(result.right.toEntity());
+    }
+    return Left(result.left);
+  }
+
+  @override
+  Future<BaseErrorModel?> sendComment(
+      int flowId, Map<String, dynamic> data) async {
+    return await locator<FlowRemoteDataSource>().sendComment(flowId, data);
+  }
 }
