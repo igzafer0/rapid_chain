@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:rapid_chain/domain/entity/flow/flow_entity.dart';
+import 'package:rapid_chain/presentation/view/widget/flow_post_widget/flow_comment_preview_widget.dart';
 import 'package:rapid_chain/presentation/widget/image/network_image_global.dart';
 import 'package:rapid_chain/presentation/widget/label/label_global_md_widget.dart';
 import 'package:rapid_chain/presentation/widget/label/label_global_widget.dart';
@@ -10,6 +11,7 @@ import 'package:rapid_chain/util/constant/navigation_constant.dart';
 import 'package:rapid_chain/util/extension/design_extension/edge_insets_extension.dart';
 import 'package:rapid_chain/util/extension/design_extension/size_extension.dart';
 import 'package:rapid_chain/util/extension/design_extension/spacer_extension.dart';
+import 'package:rapid_chain/util/extension/string_extension.dart';
 
 class FlowPostWidget extends StatelessWidget {
   final FlowEntity flowEntity;
@@ -30,20 +32,21 @@ class FlowPostWidget extends StatelessWidget {
                   width: 40,
                   height: 40,
                   child: NetworkImageGlobal(
-                      fit: BoxFit.cover, source: flowEntity.mediaItem.url),
+                      fit: BoxFit.cover,
+                      source: flowEntity.user.profilePicture.url),
                 ),
               ),
               Gap(context.MidSpacer),
-              const Column(
+              Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   LabelGlobalWidget(
-                    title: "Rapid Chain",
+                    title: flowEntity.user.userName,
                     fontSize: FONT_SIZE.TITLE_MEDIUM,
                     fontWeight: FontWeight.w800,
                   ),
                   LabelGlobalWidget(
-                    title: "14 October 2024",
+                    title: flowEntity.createdDate.formatTimeOnlyDateWithYear,
                     textColor: APPLICATION_COLOR.SUBTITLE,
                     fontSize: FONT_SIZE.BODY_SMALL,
                     fontWeight: FontWeight.w500,
@@ -66,7 +69,9 @@ class FlowPostWidget extends StatelessWidget {
           padding: context.MidHorizontalEdgeInsets,
           child: Row(
             children: [
-              const Icon(Icons.favorite_border, size: 32),
+              flowEntity.isLiked
+                  ? const Icon(Icons.favorite, size: 32)
+                  : const Icon(Icons.favorite_border, size: 32),
               Gap(context.LargeSpacer),
               GestureDetector(
                   onTap: () => context.pushNamed(
@@ -80,8 +85,8 @@ class FlowPostWidget extends StatelessWidget {
         Gap(context.MidSpacer),
         Padding(
           padding: context.MidHorizontalEdgeInsets,
-          child: const LabelGlobalWidget(
-            title: "1200 like",
+          child: LabelGlobalWidget(
+            title: "${flowEntity.likeCount} like",
             fontSize: FONT_SIZE.TITLE_SMALL,
             fontWeight: FontWeight.w700,
           ),
@@ -89,7 +94,7 @@ class FlowPostWidget extends StatelessWidget {
         Padding(
           padding: context.MidHorizontalEdgeInsets,
           child: LabelGlobalMdWidget(
-            title: "*Rapid Chain* ${flowEntity.content}",
+            title: "*${flowEntity.user.userName}* ${flowEntity.content}",
             fontSize: FONT_SIZE.TITLE_SMALL,
           ),
         ),
@@ -108,6 +113,23 @@ class FlowPostWidget extends StatelessWidget {
             ),
           ),
         ),
+        Gap(context.SmallSpacer),
+        ListView.builder(
+            physics: const NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            padding: context.MidHorizontalEdgeInsets,
+            itemCount:
+                flowEntity.comments.where((e) => e.parentId == -1).length,
+            itemBuilder: (context, index) {
+              var newList =
+                  flowEntity.comments.where((e) => e.parentId == -1).toList();
+              return FlowCommentPreviewWidget(
+                  commentEntity: flowEntity.comments
+                      .where((e) =>
+                          e.id == newList[index].id ||
+                          e.parentId == newList[index].id)
+                      .toList());
+            }),
       ],
     );
   }
