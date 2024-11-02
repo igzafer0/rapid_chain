@@ -44,7 +44,7 @@ class ChangeWalletView extends StatelessWidget {
                             Gap(context.MidSpacer),
                             TextFieldGlobalWidget(
                               newText: (e) => value.newWallet = e,
-                              inputType: InputType.PASSWORD,
+                              inputType: InputType.TEXT,
                             ),
                             Gap(context.LargeSpacer),
                             ButtonGlobalWidget(

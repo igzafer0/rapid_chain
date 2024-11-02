@@ -49,7 +49,6 @@ class AppbarGlobalWidget extends StatelessWidget
               textColor: APPLICATION_COLOR.LIGHT,
             ),
           ),
-          const Spacer(),
         ],
       ),
     );
