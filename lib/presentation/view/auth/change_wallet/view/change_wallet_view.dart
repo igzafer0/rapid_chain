@@ -23,41 +23,41 @@ class ChangeWalletView extends StatelessWidget {
       },
       onPageBuilder: (BuildContext context, ChangeWalletViewModel value) =>
           Scaffold(
-              appBar: const AppbarGlobalWidget(
-                title: "Change Wallet Address",
-              ),
-              body: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    margin: context.LargeHorizontalEdgeInsets,
-                    child: CardGlobalWidget(
-                      child: Padding(
-                        padding: context.LargeAllEdgeInsets,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisSize: MainAxisSize.min,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            const LabelGlobalWidget(
-                                title: "New Wallet Address"),
-                            Gap(context.MidSpacer),
-                            TextFieldGlobalWidget(
-                              newText: (e) => value.newWallet = e,
-                              inputType: InputType.TEXT,
-                            ),
-                            Gap(context.LargeSpacer),
-                            ButtonGlobalWidget(
-                              onTap: () => value.changeWallet(),
-                              text: "Update",
-                            )
-                          ],
-                        ),
+        appBar: const AppbarGlobalWidget(
+          title: "Change Wallet Address",
+        ),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              margin: context.LargeHorizontalEdgeInsets,
+              child: CardGlobalWidget(
+                child: Padding(
+                  padding: context.LargeAllEdgeInsets,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const LabelGlobalWidget(title: "New Wallet Address"),
+                      Gap(context.MidSpacer),
+                      TextFieldGlobalWidget(
+                        newText: (e) => value.newWallet = e,
+                        inputType: InputType.TEXT,
                       ),
-                    ),
+                      Gap(context.LargeSpacer),
+                      ButtonGlobalWidget(
+                        onTap: () => value.changeWallet(),
+                        text: "Update",
+                      )
+                    ],
                   ),
-                ],
-              )),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

@@ -45,4 +45,9 @@ class UtilRepositoryImpl implements UtilRepository {
   Future<BaseErrorModel?> changeWallet(Map<String, String> data) async {
     return await locator<UtilRemoteDataSource>().changeWallet(data);
   }
+
+  @override
+  Future<BaseErrorModel?> forgotPassword(Map<String, String> data) async {
+    return await locator<UtilRemoteDataSource>().forgotPassword(data);
+  }
 }

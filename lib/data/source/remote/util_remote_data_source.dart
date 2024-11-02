@@ -14,6 +14,7 @@ abstract class UtilRemoteDataSource {
   Future<Either<BaseErrorModel, List<MyReferenceUserDto>>> myReferenceList();
   Future<BaseErrorModel?> changePassword(Map<String, String> data);
   Future<BaseErrorModel?> changeWallet(Map<String, String> data);
+  Future<BaseErrorModel?> forgotPassword(Map<String, String> data);
 }
 
 class UtilRemoteDataSourceImpl extends UtilRemoteDataSource {
@@ -74,6 +75,18 @@ class UtilRemoteDataSourceImpl extends UtilRemoteDataSource {
       await locator<RemoteManager>()
           .networkManager
           .post(SourcePath.CHANGE_WALLET.rawValue(), data: data);
+      return null;
+    } on DioException catch (e) {
+      return BaseErrorModel.fromJson(e.response?.data ?? {});
+    }
+  }
+
+  @override
+  Future<BaseErrorModel?> forgotPassword(Map<String, String> data) async {
+    try {
+      await locator<RemoteManager>()
+          .networkManager
+          .post(SourcePath.FORGOT_PASSWORD.rawValue(), data: data);
       return null;
     } on DioException catch (e) {
       return BaseErrorModel.fromJson(e.response?.data ?? {});

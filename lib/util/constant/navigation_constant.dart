@@ -8,4 +8,5 @@ class NavigationConstant {
   static const VIDEO_PLAYER = 'video_player';
   static const CHANGE_PASSWORD = 'change_password';
   static const CHANGE_WALLET = 'change_wallet';
+  static const FORGOT_PASSWORD = 'forgot_password';
 }

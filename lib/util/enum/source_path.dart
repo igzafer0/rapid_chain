@@ -25,6 +25,7 @@ enum SourcePath {
   SEND_COMMENT,
   LIKE,
   MY_REFERENCE,
+  FORGOT_PASSWORD,
 }
 
 extension SourcePathExtension on SourcePath {
@@ -54,6 +55,7 @@ extension SourcePathExtension on SourcePath {
       SourcePath.SEND_COMMENT => "/comment/flow/${data?[0]}",
       SourcePath.LIKE => "/flow/${data?[0]}/like",
       SourcePath.MY_REFERENCE => "/user/myreferences",
+      SourcePath.FORGOT_PASSWORD => "/auth/sendresetpasswordmail",
     };
   }
 }

@@ -10,4 +10,5 @@ abstract class UtilRepository {
   Future<Either<BaseErrorModel, List<MyReferenceUserEntity>>> myReferenceList();
   Future<BaseErrorModel?> changePassword(Map<String, String> data);
   Future<BaseErrorModel?> changeWallet(Map<String, String> data);
+  Future<BaseErrorModel?> forgotPassword(Map<String, String> data);
 }

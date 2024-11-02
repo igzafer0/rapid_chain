@@ -3,6 +3,7 @@
 import 'package:go_router/go_router.dart';
 import 'package:rapid_chain/presentation/view/auth/change_password/view/change_password_view.dart';
 import 'package:rapid_chain/presentation/view/auth/change_wallet/view/change_wallet_view.dart';
+import 'package:rapid_chain/presentation/view/auth/forget_password/view/forget_password_view.dart';
 import 'package:rapid_chain/presentation/view/auth/login/view/login_view.dart';
 import 'package:rapid_chain/presentation/view/auth/register/view/register_view.dart';
 import 'package:rapid_chain/presentation/view/auth/splash/view/splash_view.dart';
@@ -62,6 +63,11 @@ final router = GoRouter(
           name: NavigationConstant.CHANGE_WALLET,
           path: NavigationConstant.CHANGE_WALLET,
           builder: (context, state) => const ChangeWalletView(),
+        ),
+        GoRoute(
+          name: NavigationConstant.FORGOT_PASSWORD,
+          path: NavigationConstant.FORGOT_PASSWORD,
+          builder: (context, state) => const ForgetPasswordView(),
         ),
       ],
     ),

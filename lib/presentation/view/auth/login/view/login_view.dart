@@ -62,13 +62,17 @@ class LoginView extends StatelessWidget {
                             text: "Log In",
                           ),
                           Gap(context.MidSpacer),
-                          const Row(
+                          Row(
                             children: [
-                              Spacer(),
-                              LabelGlobalMdWidget(
-                                  fontWeight: FontWeight.w300,
-                                  fontSize: FONT_SIZE.BODY_MEDIUM,
-                                  title: "Forgot your password? *Reset*"),
+                              const Spacer(),
+                              GestureDetector(
+                                onTap: () => context.pushNamed(
+                                    NavigationConstant.FORGOT_PASSWORD),
+                                child: const LabelGlobalMdWidget(
+                                    fontWeight: FontWeight.w300,
+                                    fontSize: FONT_SIZE.BODY_MEDIUM,
+                                    title: "Forgot your password? *Reset*"),
+                              ),
                             ],
                           ),
                           Gap(context.MidSpacer),
