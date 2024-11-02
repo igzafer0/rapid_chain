@@ -7,11 +7,11 @@ import 'package:rapid_chain/injector.dart' as di;
 import 'package:rapid_chain/injector.dart';
 
 Future<void> main() async {
-  SystemChrome.setPreferredOrientations([
-    DeviceOrientation.landscapeRight,
-    DeviceOrientation.landscapeLeft,
-  ]);
   WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
   di.init();
   locator<SharedManager>();
   await Future.delayed(const Duration(milliseconds: 100));
