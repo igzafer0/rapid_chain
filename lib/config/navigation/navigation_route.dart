@@ -1,6 +1,7 @@
 // ignore_for_file: unrelated_type_equality_checks
 
 import 'package:go_router/go_router.dart';
+import 'package:rapid_chain/presentation/view/auth/change_password/view/change_password_view.dart';
 import 'package:rapid_chain/presentation/view/auth/login/view/login_view.dart';
 import 'package:rapid_chain/presentation/view/auth/register/view/register_view.dart';
 import 'package:rapid_chain/presentation/view/auth/splash/view/splash_view.dart';
@@ -37,6 +38,11 @@ final router = GoRouter(
           name: NavigationConstant.SETTINGS,
           path: NavigationConstant.SETTINGS,
           builder: (context, state) => const SettingView(),
+        ),
+        GoRoute(
+          name: NavigationConstant.CHANGE_PASSWORD,
+          path: NavigationConstant.CHANGE_PASSWORD,
+          builder: (context, state) => const ChangePasswordView(),
         ),
         GoRoute(
           name: NavigationConstant.COMMENT_LIST,

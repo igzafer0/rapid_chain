@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
 import 'package:rapid_chain/config/base/view/base_view.dart';
 import 'package:rapid_chain/presentation/view/setting/view_model/setting_view_model.dart';
 import 'package:rapid_chain/presentation/view/setting/widget/setting_list_row_widget.dart';
@@ -7,6 +8,7 @@ import 'package:rapid_chain/presentation/widget/appbar/appbar_global_widget.dart
 import 'package:rapid_chain/presentation/widget/divider/divider_global_widget.dart';
 import 'package:rapid_chain/presentation/widget/label/label_global_widget.dart';
 import 'package:rapid_chain/util/constant/general_enum.dart';
+import 'package:rapid_chain/util/constant/navigation_constant.dart';
 import 'package:rapid_chain/util/extension/design_extension/edge_insets_extension.dart';
 import 'package:rapid_chain/util/extension/design_extension/spacer_extension.dart';
 
@@ -42,9 +44,12 @@ class SettingView extends StatelessWidget {
                 fontSize: FONT_SIZE.BODY_MEDIUM,
               ),
               Gap(context.MidSpacer),
-              const SettingListRowWidget(text: "Mail Adresi"),
+              const SettingListRowWidget(text: "Wallet Address"),
               Gap(context.MidSpacer),
-              const SettingListRowWidget(text: "Cüzdan Adresi"),
+              GestureDetector(
+                  onTap: () =>
+                      context.pushNamed(NavigationConstant.CHANGE_PASSWORD),
+                  child: const SettingListRowWidget(text: "Change Password")),
               Gap(context.MidSpacer),
               GestureDetector(
                   onTap: () => value.logOut(),
