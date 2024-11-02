@@ -42,19 +42,19 @@ class ChangePasswordView extends StatelessWidget {
                             const LabelGlobalWidget(title: "Old Password"),
                             Gap(context.MidSpacer),
                             TextFieldGlobalWidget(
-                              newText: (e) {},
-                              inputType: InputType.MAIL,
+                              newText: (e) => value.oldPassword = e,
+                              inputType: InputType.PASSWORD,
                             ),
                             Gap(context.LargeSpacer),
                             const LabelGlobalWidget(title: "New Password"),
                             Gap(context.MidSpacer),
                             TextFieldGlobalWidget(
-                              newText: (e) {},
-                              inputType: InputType.MAIL,
+                              newText: (e) => value.newPassword = e,
+                              inputType: InputType.PASSWORD,
                             ),
                             Gap(context.LargeSpacer),
                             ButtonGlobalWidget(
-                              onTap: () => {},
+                              onTap: () => value.changePassword(),
                               text: "Update",
                             )
                           ],

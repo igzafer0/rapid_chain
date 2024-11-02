@@ -44,7 +44,7 @@ class SettingView extends StatelessWidget {
                 fontSize: FONT_SIZE.BODY_MEDIUM,
               ),
               Gap(context.MidSpacer),
-              const SettingListRowWidget(text: "Wallet Address"),
+              const SettingListRowWidget(text: "Change Wallet Address"),
               Gap(context.MidSpacer),
               GestureDetector(
                   onTap: () =>
@@ -53,7 +53,7 @@ class SettingView extends StatelessWidget {
               Gap(context.MidSpacer),
               GestureDetector(
                   onTap: () => value.logOut(),
-                  child: const SettingListRowWidget(text: "Çıkış Yap")),
+                  child: const SettingListRowWidget(text: "Log Out")),
               Gap(context.LargeSpacer),
               const DividerGlobalWidget(),
               Gap(context.LargeSpacer),

@@ -35,4 +35,9 @@ class UtilRepositoryImpl implements UtilRepository {
     }
     return Left(result.left);
   }
+
+  @override
+  Future<BaseErrorModel?> changePassword(Map<String, String> data) async {
+    return await locator<UtilRemoteDataSource>().changePassword(data);
+  }
 }

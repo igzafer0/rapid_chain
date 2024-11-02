@@ -23,7 +23,7 @@ enum SourcePath {
   FLOW_COMMENT,
   SEND_COMMENT,
   LIKE,
-  MY_REFERENCE
+  MY_REFERENCE,
 }
 
 extension SourcePathExtension on SourcePath {
@@ -34,8 +34,8 @@ extension SourcePathExtension on SourcePath {
       SourcePath.ME => "/user/me",
       SourcePath.LOGIN => "/auth/login",
       SourcePath.REGISTER => "/auth/register",
+      SourcePath.CHANGE_PASSWORD => "/auth/changepassword",
       SourcePath.REFRESH_TOKEN => "/auth/refresh",
-      SourcePath.CHANGE_PASSWORD => "/auth/registser",
       SourcePath.RESET_PASSWORD => "/auth/register",
       SourcePath.VALIDATE_OTP => "/auth/validateotp",
       SourcePath.VALIDATE_WALLET => "/auth/validatewallet",

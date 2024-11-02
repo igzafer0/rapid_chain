@@ -19,4 +19,8 @@ class UtilUseCase {
       myReferenceList() async {
     return await locator<UtilRepository>().myReferenceList();
   }
+
+  Future<BaseErrorModel?> changePassword(Map<String, String> data) async {
+    return await locator<UtilRepository>().changePassword(data);
+  }
 }
