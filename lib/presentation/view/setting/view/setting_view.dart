@@ -44,7 +44,11 @@ class SettingView extends StatelessWidget {
                 fontSize: FONT_SIZE.BODY_MEDIUM,
               ),
               Gap(context.MidSpacer),
-              const SettingListRowWidget(text: "Change Wallet Address"),
+              GestureDetector(
+                  onTap: () =>
+                      context.pushNamed(NavigationConstant.CHANGE_WALLET),
+                  child: const SettingListRowWidget(
+                      text: "Change Wallet Address")),
               Gap(context.MidSpacer),
               GestureDetector(
                   onTap: () =>

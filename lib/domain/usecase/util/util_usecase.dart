@@ -23,4 +23,8 @@ class UtilUseCase {
   Future<BaseErrorModel?> changePassword(Map<String, String> data) async {
     return await locator<UtilRepository>().changePassword(data);
   }
+
+  Future<BaseErrorModel?> changeWallet(Map<String, String> data) async {
+    return await locator<UtilRepository>().changeWallet(data);
+  }
 }

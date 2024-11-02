@@ -40,11 +40,14 @@ class AppbarGlobalWidget extends StatelessWidget
                   size: 38, color: context.toColor(itemColor)),
             ),
           ),
-          LabelGlobalWidget(
-            title: title,
-            fontSize: FONT_SIZE.TITLE_LARGE,
-            fontWeight: FontWeight.w600,
-            textColor: APPLICATION_COLOR.LIGHT,
+          Expanded(
+            child: LabelGlobalWidget(
+              title: title,
+              maxLines: 1,
+              fontSize: FONT_SIZE.TITLE_LARGE,
+              fontWeight: FontWeight.w600,
+              textColor: APPLICATION_COLOR.LIGHT,
+            ),
           ),
           const Spacer(),
         ],
